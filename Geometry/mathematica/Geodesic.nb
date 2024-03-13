@@ -1,0 +1,1263 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 9.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       157,          7]
+NotebookDataLength[     31575,       1253]
+NotebookOptionsPosition[     28860,       1155]
+NotebookOutlinePosition[     29558,       1183]
+CellTagsIndexPosition[     29472,       1178]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["Geodesic", "Title"],
+
+Cell[CellGroupData[{
+
+Cell["Author", "Subsection"],
+
+Cell["\<\
+Eric W. Weisstein
+May 3, 2004\
+\>", "Text"],
+
+Cell[TextData[{
+ "This notebook downloaded from ",
+ ButtonBox["http://mathworld.wolfram.com/notebooks/DifferentialGeometry/\
+Geodesic.nb",
+  BaseStyle->"Hyperlink",
+  ButtonData:>{
+    URL["http://mathworld.wolfram.com/notebooks/DifferentialGeometry/Geodesic.\
+nb"], None}],
+ "."
+}], "Text"],
+
+Cell[TextData[{
+ "For more information, see Eric's ",
+ StyleBox["MathWorld",
+  FontSlant->"Italic"],
+ " entry ",
+ ButtonBox["http://mathworld.wolfram.com/Geodesic.html",
+  BaseStyle->"Hyperlink",
+  ButtonData:>{
+    URL["http://mathworld.wolfram.com/Geodesic.html"], None}],
+ "."
+}], "Text"],
+
+Cell["\<\
+\[Copyright]2005 Wolfram Research, Inc. except for portions noted otherwise\
+\>", "Text"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Code", "Subsection"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"Geodesic", "[", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{"x_", ",", "y_", ",", "z_"}], "}"}], ",", 
+    RowBox[{"{", 
+     RowBox[{"u_", ",", "v_"}], "}"}]}], "]"}], ":=", 
+  RowBox[{"Module", "[", 
+   RowBox[{
+    RowBox[{"{", "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{"P", "=", 
+       RowBox[{"Simplify", "[", 
+        RowBox[{
+         RowBox[{
+          RowBox[{"D", "[", 
+           RowBox[{"x", ",", "u"}], "]"}], "^", "2"}], "+", 
+         RowBox[{
+          RowBox[{"D", "[", 
+           RowBox[{"y", ",", "u"}], "]"}], "^", "2"}], "+", 
+         RowBox[{
+          RowBox[{"D", "[", 
+           RowBox[{"z", ",", "u"}], "]"}], "^", "2"}]}], "]"}]}], ",", 
+      RowBox[{"Q", "=", 
+       RowBox[{"Simplify", "[", 
+        RowBox[{
+         RowBox[{
+          RowBox[{"D", "[", 
+           RowBox[{"x", ",", "u"}], "]"}], 
+          RowBox[{"D", "[", 
+           RowBox[{"x", ",", "v"}], "]"}]}], "+", 
+         RowBox[{
+          RowBox[{"D", "[", 
+           RowBox[{"y", ",", "u"}], "]"}], 
+          RowBox[{"D", "[", 
+           RowBox[{"y", ",", "v"}], "]"}]}], "+", 
+         RowBox[{
+          RowBox[{"D", "[", 
+           RowBox[{"z", ",", "u"}], "]"}], 
+          RowBox[{"D", "[", 
+           RowBox[{"z", ",", "v"}], "]"}]}]}], "]"}]}], ",", 
+      RowBox[{"R", "=", 
+       RowBox[{"Simplify", "[", 
+        RowBox[{
+         RowBox[{
+          RowBox[{"D", "[", 
+           RowBox[{"x", ",", "v"}], "]"}], "^", "2"}], "+", 
+         RowBox[{
+          RowBox[{"D", "[", 
+           RowBox[{"y", ",", "v"}], "]"}], "^", "2"}], "+", 
+         RowBox[{
+          RowBox[{"D", "[", 
+           RowBox[{"z", ",", "v"}], "]"}], "^", "2"}]}], "]"}]}]}], "}"}], 
+    ",", "\[IndentingNewLine]", 
+    RowBox[{"{", 
+     RowBox[{"P", ",", "Q", ",", "R"}], "}"}]}], "]"}]}]], "Input"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"GeodesicPlot", "[", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{"x_", ",", "y_", ",", "z_"}], "}"}], ",", 
+    RowBox[{"{", 
+     RowBox[{"u_", ",", "umin_", ",", "umax_"}], "}"}], ",", 
+    RowBox[{"{", 
+     RowBox[{"v_", ",", "vmin_"}], "}"}]}], "]"}], ":=", 
+  RowBox[{"Module", "[", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{"P", ",", "Q", ",", "R"}], "}"}], ",", "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{"P", ",", "Q", ",", "R"}], "}"}], "=", 
+      RowBox[{"Geodesic", "[", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{"x", ",", "y", ",", "z"}], "}"}], ",", 
+        RowBox[{"{", 
+         RowBox[{"u", ",", "v"}], "}"}]}], "]"}]}], ";", 
+     "\[IndentingNewLine]", 
+     RowBox[{"NDSolve", "[", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{
+          RowBox[{
+           RowBox[{
+            RowBox[{
+             RowBox[{"(", 
+              RowBox[{
+               RowBox[{"D", "[", 
+                RowBox[{"P", ",", "v"}], "]"}], "+", 
+               RowBox[{"2", 
+                RowBox[{
+                 RowBox[{"v", "'"}], "[", "u", "]"}], 
+                RowBox[{"D", "[", 
+                 RowBox[{"Q", ",", "v"}], "]"}]}], "+", 
+               RowBox[{
+                RowBox[{
+                 RowBox[{
+                  RowBox[{"v", "'"}], "[", "u", "]"}], "^", "2"}], 
+                RowBox[{"D", "[", 
+                 RowBox[{"R", ",", "v"}], "]"}]}]}], ")"}], "/", "2"}], 
+            RowBox[{"Sqrt", "[", 
+             RowBox[{"P", "+", 
+              RowBox[{"2", "Q", " ", 
+               RowBox[{
+                RowBox[{"v", "'"}], "[", "u", "]"}]}], "+", 
+              RowBox[{
+               RowBox[{
+                RowBox[{"Rv", "'"}], "[", "u", "]"}], "^", "2"}]}], "]"}]}], 
+           "-", 
+           RowBox[{"D", "[", 
+            RowBox[{
+             RowBox[{
+              RowBox[{"(", 
+               RowBox[{"Q", "+", 
+                RowBox[{
+                 RowBox[{"Rv", "'"}], "[", "u", "]"}]}], ")"}], "/", 
+              RowBox[{"Sqrt", "[", 
+               RowBox[{"P", "+", 
+                RowBox[{"2", 
+                 RowBox[{
+                  RowBox[{"Qv", "'"}], "[", "u", "]"}]}], "+", 
+                RowBox[{
+                 RowBox[{
+                  RowBox[{"Rv", "'"}], "[", "u", "]"}], "^", "2"}]}], "]"}]}],
+              ",", "u"}], "]"}]}], "\[Equal]", "0"}], ",", 
+         "\[IndentingNewLine]", 
+         RowBox[{
+          RowBox[{"u", "[", "vmin", "]"}], "\[Equal]", "umin"}]}], 
+        "\[IndentingNewLine]", "}"}], ",", 
+       RowBox[{"v", "[", "u", "]"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"u", ",", "umin", ",", "umax"}], "}"}]}], "]"}]}]}], 
+   "\[IndentingNewLine]", "]"}]}]], "Input"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"GeodesicPlot", "[", 
+  RowBox[{
+   RowBox[{"a", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"Cos", "[", "u", "]"}], 
+       RowBox[{"Sin", "[", "v", "]"}]}], ",", 
+      RowBox[{
+       RowBox[{"Sin", "[", "u", "]"}], 
+       RowBox[{"Sin", "[", "v", "]"}]}], ",", 
+      RowBox[{"Cos", "[", "v", "]"}]}], "}"}]}], ",", 
+   RowBox[{"{", 
+    RowBox[{"u", ",", "0", ",", "1"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"v", ",", "0"}], "}"}]}], "]"}]], "Input"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"NDSolve", "::", "\<\"ndode\"\>"}], ":", 
+  " ", "\<\"Input is not an ordinary differential equation.\"\>"}]], "Message"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"NDSolve", "::", "\<\"ndode\"\>"}], ":", 
+  " ", "\<\"Input is not an ordinary differential equation.\"\>"}]], "Message"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"NDSolve", "::", "\<\"ndode\"\>"}], ":", 
+  " ", "\<\"Input is not an ordinary differential equation.\"\>"}]], "Message"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"General", "::", "\<\"stop\"\>"}], ":", 
+  " ", "\<\"Further output of \\!\\(NDSolve :: \\\"ndode\\\"\\) will be \
+suppressed during this calculation.\"\>"}]], "Message"],
+
+Cell[BoxData[
+ RowBox[{"NDSolve", "[", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{
+      RowBox[{
+       RowBox[{
+        SuperscriptBox["a", "2"], " ", 
+        RowBox[{"Cos", "[", "v", "]"}], " ", 
+        RowBox[{"Sin", "[", "v", "]"}], " ", 
+        SqrtBox[
+         RowBox[{
+          RowBox[{
+           SuperscriptBox["a", "2"], " ", 
+           SuperscriptBox[
+            RowBox[{"Sin", "[", "v", "]"}], "2"]}], "+", 
+          SuperscriptBox[
+           RowBox[{
+            SuperscriptBox["Rv", "\[Prime]",
+             MultilineFunction->None], "[", "u", "]"}], "2"]}]]}], "-", 
+       FractionBox[
+        RowBox[{
+         SuperscriptBox["Rv", "\[Prime]\[Prime]",
+          MultilineFunction->None], "[", "u", "]"}], 
+        SqrtBox[
+         RowBox[{
+          RowBox[{
+           SuperscriptBox["a", "2"], " ", 
+           SuperscriptBox[
+            RowBox[{"Sin", "[", "v", "]"}], "2"]}], "+", 
+          RowBox[{"2", " ", 
+           RowBox[{
+            SuperscriptBox["Qv", "\[Prime]",
+             MultilineFunction->None], "[", "u", "]"}]}], "+", 
+          SuperscriptBox[
+           RowBox[{
+            SuperscriptBox["Rv", "\[Prime]",
+             MultilineFunction->None], "[", "u", "]"}], "2"]}]]], "+", 
+       FractionBox[
+        RowBox[{
+         RowBox[{
+          SuperscriptBox["Rv", "\[Prime]",
+           MultilineFunction->None], "[", "u", "]"}], " ", 
+         RowBox[{"(", 
+          RowBox[{
+           RowBox[{"2", " ", 
+            RowBox[{
+             SuperscriptBox["Qv", "\[Prime]\[Prime]",
+              MultilineFunction->None], "[", "u", "]"}]}], "+", 
+           RowBox[{"2", " ", 
+            RowBox[{
+             SuperscriptBox["Rv", "\[Prime]",
+              MultilineFunction->None], "[", "u", "]"}], " ", 
+            RowBox[{
+             SuperscriptBox["Rv", "\[Prime]\[Prime]",
+              MultilineFunction->None], "[", "u", "]"}]}]}], ")"}]}], 
+        RowBox[{"2", " ", 
+         SuperscriptBox[
+          RowBox[{"(", 
+           RowBox[{
+            RowBox[{
+             SuperscriptBox["a", "2"], " ", 
+             SuperscriptBox[
+              RowBox[{"Sin", "[", "v", "]"}], "2"]}], "+", 
+            RowBox[{"2", " ", 
+             RowBox[{
+              SuperscriptBox["Qv", "\[Prime]",
+               MultilineFunction->None], "[", "u", "]"}]}], "+", 
+            SuperscriptBox[
+             RowBox[{
+              SuperscriptBox["Rv", "\[Prime]",
+               MultilineFunction->None], "[", "u", "]"}], "2"]}], ")"}], 
+          RowBox[{"3", "/", "2"}]]}]]}], "==", "0"}], ",", 
+     RowBox[{
+      RowBox[{"u", "[", "0", "]"}], "==", "0"}]}], "}"}], ",", 
+   RowBox[{"v", "[", "u", "]"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"u", ",", "0", ",", "1"}], "}"}]}], "]"}]], "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"?", "NDSolve"}]], "Input"],
+
+Cell[BoxData[
+ RowBox[{"\<\"NDSolve[eqns, y, {x, xmin, xmax}] finds a numerical solution to \
+the ordinary differential equations eqns for the function y with the \
+independent variable x in the range xmin to xmax. NDSolve[eqns, y, {x, xmin, \
+xmax}, {t, tmin, tmax}] finds a numerical solution to the partial \
+differential equations eqns. NDSolve[eqns, {y1, y2, ... }, {x, xmin, xmax}] \
+finds numerical solutions for the functions yi.\"\>", " ", 
+  ButtonBox[
+   StyleBox["More\[Ellipsis]", "SR"],
+   Active->True,
+   BaseStyle->"RefGuideLink",
+   ButtonData:>"NDSolve"]}]], "Print",
+ CellTags->"Info3175804270-3568336"]
+}, Open  ]],
+
+Cell["\<\
+\[Copyright]2005 Wolfram Research, Inc. except for portions noted otherwise\
+\>", "Text"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Sphere", "Section"],
+
+Cell[CellGroupData[{
+
+Cell["{P,Q,R}=Geodesic[a{Cos[u]Sin[v],Sin[u]Sin[v],Cos[v]},{u,v}]", "Input",
+ ImageRegion->{{0, 1}, {0, 1}}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{
+    SuperscriptBox["a", "2"], " ", 
+    SuperscriptBox[
+     RowBox[{"Sin", "[", "v", "]"}], "2"]}], ",", "0", ",", 
+   SuperscriptBox["a", "2"]}], "}"}]], "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"PowerExpand", "[", 
+  RowBox[{"Sqrt", "[", 
+   RowBox[{"R", "/", 
+    RowBox[{"(", 
+     RowBox[{
+      RowBox[{"P", "^", "2"}], "-", 
+      RowBox[{
+       RowBox[{
+        SubscriptBox["c", "1"], "^", "2"}], " ", "P"}]}], ")"}]}], "]"}], 
+  "]"}]], "Input"],
+
+Cell[BoxData[
+ FractionBox["a", 
+  SqrtBox[
+   RowBox[{
+    RowBox[{
+     SuperscriptBox["a", "4"], " ", 
+     SuperscriptBox[
+      RowBox[{"Sin", "[", "v", "]"}], "4"]}], "-", 
+    RowBox[{
+     SuperscriptBox["a", "2"], " ", 
+     SuperscriptBox[
+      RowBox[{"Sin", "[", "v", "]"}], "2"], " ", 
+     SubsuperscriptBox["c", "1", "2"]}]}]]]], "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"PowerExpand", "[", 
+  RowBox[{"Sqrt", "[", 
+   RowBox[{"Simplify", "[", "%", "]"}], "]"}], "]"}]], "Input"],
+
+Cell[BoxData[
+ FractionBox[
+  RowBox[{"Csc", "[", "v", "]"}], 
+  SqrtBox[
+   RowBox[{
+    RowBox[{
+     SuperscriptBox["a", "2"], " ", 
+     SuperscriptBox[
+      RowBox[{"Sin", "[", "v", "]"}], "2"]}], "-", 
+    SubsuperscriptBox["c", "1", "2"]}]]]], "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"FullSimplify", "[", 
+  RowBox[{"Subtract", "@@", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"-", 
+      RowBox[{"ArcTan", "[", 
+       RowBox[{
+        RowBox[{"Cos", "[", "v", "]"}], "/", 
+        RowBox[{"Sqrt", "[", 
+         RowBox[{
+          RowBox[{
+           RowBox[{
+            SubscriptBox["a", "1"], "^", "2"}], " ", 
+           RowBox[{
+            RowBox[{"Sin", "[", "v", "]"}], "^", "2"}]}], "-", 
+          SuperscriptBox[
+           SubscriptBox["c", "1"], "2"]}], "]"}]}], "]"}]}], ",", 
+     RowBox[{"-", 
+      RowBox[{"ArcSin", "[", 
+       RowBox[{
+        RowBox[{"Cot", "[", "v", "]"}], "/", 
+        RowBox[{"Sqrt", "[", 
+         RowBox[{
+          RowBox[{
+           RowBox[{"(", 
+            RowBox[{"a", "/", 
+             SubscriptBox["c", "1"]}], ")"}], "^", "2"}], "-", "1"}], "]"}]}],
+        "]"}]}]}], "}"}]}], "]"}]], "Input"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"ArcSin", "[", 
+   FractionBox[
+    RowBox[{"Cot", "[", "v", "]"}], 
+    SqrtBox[
+     RowBox[{
+      RowBox[{"-", "1"}], "+", 
+      FractionBox[
+       SuperscriptBox["a", "2"], 
+       SubsuperscriptBox["c", "1", "2"]]}]]], "]"}], "-", 
+  RowBox[{"ArcTan", "[", 
+   FractionBox[
+    RowBox[{"Cos", "[", "v", "]"}], 
+    SqrtBox[
+     RowBox[{
+      RowBox[{
+       SuperscriptBox[
+        RowBox[{"Sin", "[", "v", "]"}], "2"], " ", 
+       SubsuperscriptBox["a", "1", "2"]}], "-", 
+      SubsuperscriptBox["c", "1", "2"]}]]], "]"}]}]], "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Plot", "[", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"-", 
+      RowBox[{"ArcTan", "[", 
+       RowBox[{
+        RowBox[{"Cos", "[", "x", "]"}], "/", 
+        RowBox[{"Sqrt", "[", 
+         RowBox[{
+          RowBox[{"4", " ", 
+           RowBox[{
+            RowBox[{"Sin", "[", "x", "]"}], "^", "2"}]}], "-", "1"}], "]"}]}],
+        "]"}]}], ",", 
+     RowBox[{"-", 
+      RowBox[{"ArcSin", "[", 
+       RowBox[{
+        RowBox[{"Cot", "[", "x", "]"}], "/", 
+        RowBox[{"Sqrt", "[", 
+         RowBox[{"4", "-", "1"}], "]"}]}], "]"}]}]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"x", ",", ".5", ",", "1.5"}], "}"}], ",", 
+   RowBox[{"PlotStyle", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"{", "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"Thickness", "[", "0.01", "]"}], ",", 
+        RowBox[{"Dashing", "[", 
+         RowBox[{"{", 
+          RowBox[{".03", ",", ".03"}], "}"}], "]"}]}], "}"}]}], "}"}]}]}], 
+  "]"}]], "Input"],
+
+Cell[GraphicsData["PostScript", "\<\
+%!
+%%Creator: Mathematica
+%%AspectRatio: .61803 
+MathPictureStart
+/Mabs {
+Mgmatrix idtransform
+Mtmatrix dtransform
+} bind def
+/Mabsadd { Mabs
+3 -1 roll add
+3 1 roll add
+exch } bind def
+%% Graphics
+%%IncludeResource: font Courier
+%%IncludeFont: Courier
+/Courier findfont 10  scalefont  setfont
+% Scaling calculations
+-0.486948 0.975426 0.603319 0.377386 [
+[.09831 .59082 -9.625 -14 ]
+[.09831 .59082 9.625 0 ]
+[.29339 .59082 -9.5 -14 ]
+[.29339 .59082 9.5 0 ]
+[.68356 .59082 -9.5 -14 ]
+[.68356 .59082 9.5 0 ]
+[.87865 .59082 -9.5 -14 ]
+[.87865 .59082 9.5 0 ]
+[.47598 .03724 -27.25 -7 ]
+[.47598 .03724 0 7 ]
+[.47598 .13159 -33.25 -7 ]
+[.47598 .13159 0 7 ]
+[.47598 .22593 -18.25 -7 ]
+[.47598 .22593 0 7 ]
+[.47598 .32028 -33.25 -7 ]
+[.47598 .32028 0 7 ]
+[.47598 .41463 -27.25 -7 ]
+[.47598 .41463 0 7 ]
+[.47598 .50897 -33.25 -7 ]
+[.47598 .50897 0 7 ]
+[ 0 0 0 0 ]
+[ 1 .61803 0 0 ]
+] MathScale
+% Start of Graphics
+1 setlinecap
+1 setlinejoin
+newpath
+0 g
+.25 Mabswid
+[ ] 0 setdash
+.09831 .60332 m
+.09831 .60957 L
+s
+gsave
+.09831 .59082 -70.625 -18 Mabsadd m
+1 1 Mabs scale
+currentpoint translate
+0 22 translate 1 -1 scale
+63.000 14.000 moveto
+%%IncludeResource: font Times-Italic
+%%IncludeFont: Times-Italic
+/Times-Italic findfont 12.000 scalefont
+[1 0 0 -1 0 0 ] makefont setfont
+0.000 0.000 0.000 setrgbcolor
+(0.6) show
+1.000 setlinewidth
+grestore
+.29339 .60332 m
+.29339 .60957 L
+s
+gsave
+.29339 .59082 -70.5 -18 Mabsadd m
+1 1 Mabs scale
+currentpoint translate
+0 22 translate 1 -1 scale
+63.000 14.000 moveto
+%%IncludeResource: font Times-Italic
+%%IncludeFont: Times-Italic
+/Times-Italic findfont 12.000 scalefont
+[1 0 0 -1 0 0 ] makefont setfont
+0.000 0.000 0.000 setrgbcolor
+(0.8) show
+1.000 setlinewidth
+grestore
+.68356 .60332 m
+.68356 .60957 L
+s
+gsave
+.68356 .59082 -70.5 -18 Mabsadd m
+1 1 Mabs scale
+currentpoint translate
+0 22 translate 1 -1 scale
+63.000 14.000 moveto
+%%IncludeResource: font Times-Italic
+%%IncludeFont: Times-Italic
+/Times-Italic findfont 12.000 scalefont
+[1 0 0 -1 0 0 ] makefont setfont
+0.000 0.000 0.000 setrgbcolor
+(1.2) show
+1.000 setlinewidth
+grestore
+.87865 .60332 m
+.87865 .60957 L
+s
+gsave
+.87865 .59082 -70.5 -18 Mabsadd m
+1 1 Mabs scale
+currentpoint translate
+0 22 translate 1 -1 scale
+63.000 14.000 moveto
+%%IncludeResource: font Times-Italic
+%%IncludeFont: Times-Italic
+/Times-Italic findfont 12.000 scalefont
+[1 0 0 -1 0 0 ] makefont setfont
+0.000 0.000 0.000 setrgbcolor
+(1.4) show
+1.000 setlinewidth
+grestore
+.125 Mabswid
+.14708 .60332 m
+.14708 .60707 L
+s
+.19585 .60332 m
+.19585 .60707 L
+s
+.24462 .60332 m
+.24462 .60707 L
+s
+.34216 .60332 m
+.34216 .60707 L
+s
+.39093 .60332 m
+.39093 .60707 L
+s
+.43971 .60332 m
+.43971 .60707 L
+s
+.53725 .60332 m
+.53725 .60707 L
+s
+.58602 .60332 m
+.58602 .60707 L
+s
+.63479 .60332 m
+.63479 .60707 L
+s
+.73233 .60332 m
+.73233 .60707 L
+s
+.78111 .60332 m
+.78111 .60707 L
+s
+.82988 .60332 m
+.82988 .60707 L
+s
+.04954 .60332 m
+.04954 .60707 L
+s
+.00076 .60332 m
+.00076 .60707 L
+s
+.92742 .60332 m
+.92742 .60707 L
+s
+.97619 .60332 m
+.97619 .60707 L
+s
+.25 Mabswid
+0 .60332 m
+1 .60332 L
+s
+.48848 .03724 m
+.49473 .03724 L
+s
+gsave
+.47598 .03724 -88.25 -11 Mabsadd m
+1 1 Mabs scale
+currentpoint translate
+0 22 translate 1 -1 scale
+63.000 14.000 moveto
+%%IncludeResource: font Math1
+%%IncludeFont: Math1
+/Math1 findfont 12.000 scalefont
+[1 0 0 -1 0 0 ] makefont setfont
+0.000 0.000 0.000 setrgbcolor
+(-) show
+71.250 14.000 moveto
+%%IncludeResource: font Times-Italic
+%%IncludeFont: Times-Italic
+/Times-Italic findfont 12.000 scalefont
+[1 0 0 -1 0 0 ] makefont setfont
+0.000 0.000 0.000 setrgbcolor
+(1.5) show
+1.000 setlinewidth
+grestore
+.48848 .13159 m
+.49473 .13159 L
+s
+gsave
+.47598 .13159 -94.25 -11 Mabsadd m
+1 1 Mabs scale
+currentpoint translate
+0 22 translate 1 -1 scale
+63.000 14.000 moveto
+%%IncludeResource: font Math1
+%%IncludeFont: Math1
+/Math1 findfont 12.000 scalefont
+[1 0 0 -1 0 0 ] makefont setfont
+0.000 0.000 0.000 setrgbcolor
+(-) show
+71.250 14.000 moveto
+%%IncludeResource: font Times-Italic
+%%IncludeFont: Times-Italic
+/Times-Italic findfont 12.000 scalefont
+[1 0 0 -1 0 0 ] makefont setfont
+0.000 0.000 0.000 setrgbcolor
+(1.25) show
+1.000 setlinewidth
+grestore
+.48848 .22593 m
+.49473 .22593 L
+s
+gsave
+.47598 .22593 -79.25 -11 Mabsadd m
+1 1 Mabs scale
+currentpoint translate
+0 22 translate 1 -1 scale
+63.000 14.000 moveto
+%%IncludeResource: font Math1
+%%IncludeFont: Math1
+/Math1 findfont 12.000 scalefont
+[1 0 0 -1 0 0 ] makefont setfont
+0.000 0.000 0.000 setrgbcolor
+(-) show
+71.250 14.000 moveto
+%%IncludeResource: font Times-Italic
+%%IncludeFont: Times-Italic
+/Times-Italic findfont 12.000 scalefont
+[1 0 0 -1 0 0 ] makefont setfont
+0.000 0.000 0.000 setrgbcolor
+(1) show
+1.000 setlinewidth
+grestore
+.48848 .32028 m
+.49473 .32028 L
+s
+gsave
+.47598 .32028 -94.25 -11 Mabsadd m
+1 1 Mabs scale
+currentpoint translate
+0 22 translate 1 -1 scale
+63.000 14.000 moveto
+%%IncludeResource: font Math1
+%%IncludeFont: Math1
+/Math1 findfont 12.000 scalefont
+[1 0 0 -1 0 0 ] makefont setfont
+0.000 0.000 0.000 setrgbcolor
+(-) show
+71.250 14.000 moveto
+%%IncludeResource: font Times-Italic
+%%IncludeFont: Times-Italic
+/Times-Italic findfont 12.000 scalefont
+[1 0 0 -1 0 0 ] makefont setfont
+0.000 0.000 0.000 setrgbcolor
+(0.75) show
+1.000 setlinewidth
+grestore
+.48848 .41463 m
+.49473 .41463 L
+s
+gsave
+.47598 .41463 -88.25 -11 Mabsadd m
+1 1 Mabs scale
+currentpoint translate
+0 22 translate 1 -1 scale
+63.000 14.000 moveto
+%%IncludeResource: font Math1
+%%IncludeFont: Math1
+/Math1 findfont 12.000 scalefont
+[1 0 0 -1 0 0 ] makefont setfont
+0.000 0.000 0.000 setrgbcolor
+(-) show
+71.250 14.000 moveto
+%%IncludeResource: font Times-Italic
+%%IncludeFont: Times-Italic
+/Times-Italic findfont 12.000 scalefont
+[1 0 0 -1 0 0 ] makefont setfont
+0.000 0.000 0.000 setrgbcolor
+(0.5) show
+1.000 setlinewidth
+grestore
+.48848 .50897 m
+.49473 .50897 L
+s
+gsave
+.47598 .50897 -94.25 -11 Mabsadd m
+1 1 Mabs scale
+currentpoint translate
+0 22 translate 1 -1 scale
+63.000 14.000 moveto
+%%IncludeResource: font Math1
+%%IncludeFont: Math1
+/Math1 findfont 12.000 scalefont
+[1 0 0 -1 0 0 ] makefont setfont
+0.000 0.000 0.000 setrgbcolor
+(-) show
+71.250 14.000 moveto
+%%IncludeResource: font Times-Italic
+%%IncludeFont: Times-Italic
+/Times-Italic findfont 12.000 scalefont
+[1 0 0 -1 0 0 ] makefont setfont
+0.000 0.000 0.000 setrgbcolor
+(0.25) show
+1.000 setlinewidth
+grestore
+.125 Mabswid
+.48848 .05611 m
+.49223 .05611 L
+s
+.48848 .07498 m
+.49223 .07498 L
+s
+.48848 .09385 m
+.49223 .09385 L
+s
+.48848 .11272 m
+.49223 .11272 L
+s
+.48848 .15046 m
+.49223 .15046 L
+s
+.48848 .16933 m
+.49223 .16933 L
+s
+.48848 .18819 m
+.49223 .18819 L
+s
+.48848 .20706 m
+.49223 .20706 L
+s
+.48848 .2448 m
+.49223 .2448 L
+s
+.48848 .26367 m
+.49223 .26367 L
+s
+.48848 .28254 m
+.49223 .28254 L
+s
+.48848 .30141 m
+.49223 .30141 L
+s
+.48848 .33915 m
+.49223 .33915 L
+s
+.48848 .35802 m
+.49223 .35802 L
+s
+.48848 .37689 m
+.49223 .37689 L
+s
+.48848 .39576 m
+.49223 .39576 L
+s
+.48848 .4335 m
+.49223 .4335 L
+s
+.48848 .45236 m
+.49223 .45236 L
+s
+.48848 .47123 m
+.49223 .47123 L
+s
+.48848 .4901 m
+.49223 .4901 L
+s
+.48848 .52784 m
+.49223 .52784 L
+s
+.48848 .54671 m
+.49223 .54671 L
+s
+.48848 .56558 m
+.49223 .56558 L
+s
+.48848 .58445 m
+.49223 .58445 L
+s
+.48848 .01837 m
+.49223 .01837 L
+s
+.25 Mabswid
+.48848 0 m
+.48848 .61803 L
+s
+0 0 m
+1 0 L
+1 .61803 L
+0 .61803 L
+closepath
+clip
+newpath
+.5 Mabswid
+.02381 .01472 m
+.02504 .03966 L
+.02621 .05091 L
+.02729 .05901 L
+.02972 .07353 L
+.03487 .09635 L
+.04033 .11499 L
+.06087 .16481 L
+.08349 .20353 L
+.12475 .25545 L
+.16446 .29338 L
+.20668 .32614 L
+.24735 .35273 L
+.28647 .37501 L
+.3281 .396 L
+.36818 .41415 L
+.41076 .43166 L
+.4518 .44713 L
+.49128 .46095 L
+.53328 .47468 L
+.57372 .48711 L
+.61261 .49846 L
+.65401 .50997 L
+.69386 .52059 L
+.73623 .53145 L
+.77704 .54158 L
+.81629 .55105 L
+.85806 .5609 L
+.89828 .5702 L
+.93694 .57901 L
+.97619 .58786 L
+s
+.01 w
+[ .03 .03 ] 0 setdash
+.02381 .01472 m
+.02504 .03966 L
+.02621 .05091 L
+.02729 .05901 L
+.02972 .07353 L
+.03487 .09635 L
+.04033 .11499 L
+.06087 .16481 L
+.08349 .20353 L
+.12475 .25545 L
+.16446 .29338 L
+.20668 .32614 L
+.24735 .35273 L
+.28647 .37501 L
+.3281 .396 L
+.36818 .41415 L
+.41076 .43166 L
+.4518 .44713 L
+.49128 .46095 L
+.53328 .47468 L
+.57372 .48711 L
+.61261 .49846 L
+.65401 .50997 L
+.69386 .52059 L
+.73623 .53145 L
+.77704 .54158 L
+.81629 .55105 L
+.85806 .5609 L
+.89828 .5702 L
+.93694 .57901 L
+.97619 .58786 L
+s
+% End of Graphics
+MathPictureEnd
+\
+\>"], "Graphics",
+ ImageSize->{288, 177.938},
+ ImageMargins->{{43, 0}, {0, 0}},
+ ImageRegion->{{0, 1}, {0, 
+  1}},ImageCache->GraphicsData["CompressedBitmap", "\<\
+eJztWmtzVEUQvclusnkTURNLBFdUxDyRAImIsSwkKqWURVFoBJXNim6klJgE
+FPEF+KCsfFD8Jf7CNdN3cubu7Om5j6z6xVTl7s306e7TPXP79szm7dpm4+rn
+tc3Veq36+nptrbFa36guXV/fHip1RVFXNYqiv6qRuW9u39rLVnP7JyqZP5r2
+J/pDrlHHRb3mo9tIfsoMkrsHxfXTQGvmTjAlD27SI5D+LHa+JKAKGestaqyP
+jPXoGWqYu0pTYshhLI3ZuhaSSFnAmUy4QBgza4JZX8sYSIAZE11v5SPCwMwx
+0ndg4kEKKKfN/wJeQTD3/LA8UUBfJHdTOHV3DCSStlnox0Ag3A6DRPKjDhok
+ou8LwJNx5rQ5RETf5YPXESqrpGV7tX/v/AZqK/PxMRmLH/dycqy54yp78R1C
+Aq9mVGRlpq0gO7OXzZ1akFkRYhEEirS4KuWJoARygfI4HExMxTJNJr+ZXsqH
+wZXNaJkYJctKy5v1MQIi9dY45a4HDAKLYgSg21C0E7sHA7d1/T3Q/0YHjcJS
+APQQEX1dAJ4MYS8BfaXbfJiIbnYM/ggR3UiBSzA3/bA8UUBfJAEnjwK0qYPG
+4C4NJJINHTQOSxt+TOPQZ92T1X8MINY/WtA+InKVO/DIPqEpZn8ic5lIhr+f
+gJbNNVc9tSwOENEKGQvUhQMgyOinKYqkiEeR1OA7MFlPAv6Zn8sqRKu6/lMA
+NXTQQYA+1UFPA/SJDjpERK5oW+LPERDLorV5mIhqOvx5IrqSAu/GfARAIrni
+BzMB0Ue6/iRAH+qgKYA+0EHT5kNeqJd00AxA7+ugI3C37Mc0h4F3df3jRHRB
+h58gopPwE3cEvPUTnUB7OQ8rL3Ir7GnM2VTOg8hCdh+Z+soFWJ41d1IH43Ts
+6NGyyPjnbDMlWxLIcQtNxmQJFG83ZXLF5jGesoId5ynQnuN2O9N0LpqPEtx0
+Y5LLMJbWdL4KxTdxZ2f9NNFa0i29Bv0A6AxAZ1JAEgKjYEHiRKbOhWCJvwHR
+K7r+WThZ1EFvAXRKB70D/yd10HmAFny6UpBKbo1T/QuIaU4HXQTdozroPYCO
+6KBluJvRQZcQSaIYmL+m/BDdG2lCN7eCPLCXrwXVwX4vbBY5SxU7vUYi2ybt
+yc9cfGW7KoVxiNvLdKLaAKtu2MtQaNUizrleg1tv3vqsplpj0+rpmgdqy0Km
+o1fZdZQCZTLnmatscFxJdPzSiqMoVloXm50p2e3JTI3q+rfMh6RzRAe5zX77
+gRU7V7NqdxBAIJP3EHnbUhNRH1lgVv4LYv8zHvgNEf8eD2yRydlxt5WAuBMQ
+ScX9pDZpDoTTzzqoD8Tu6qBBZKc9qT/oau4AzXV13+pwt2W/5cc7BpY3dP1x
+xLuugx43134z9EUMcvv1XR597ifRXov11u180Aev8Onns+Yq2o2gm/yN6iGk
+Oz43jHei/0ajehiOVpIxdapRlV2ZLJF4V2aPdHbdqEoXISSXg3Z32aiegJuL
+seYmWLkXSvh0dB4ZOB+bcA/ZS+ZOHo1zCZGn/zKsC2kJ5awOd33lUgpIOJ3W
+QdJQD5ihRZ/4OTCR5ShVdUG3JDtcWWNzKaBBMzSrgy4jOu/VL7Qm4xF3yMi2
+vDuyaQ/lr+qIt6ozrdPBqtczsNzTmifPFBuLD+/iypy5fk3y4Xjt8yf5KDiy
+LlrxI31xRUtZFuqczERB/h6BWTLGnkgJY9gMtVDmjkIkJlL1WlcHW0+MtFpI
+25eyPDD7MoZRdouFo1wlY/llK0XNL3sduR5W3I/FbsdIZBFvkqc4NDRHL2QM
+RM85Cdi9AKSIjgYDYSkq8MRmDUR5401rMbtCJWtpOMa7r1fc/xC4bbGE5NaJ
+qyPe94auxg4Q9wOw0t7vxXj6Dvi1ldo/8K9XwqRqLl2WFunO/x/LNMYmvtM+
+4ieMfmPGjqSyjh0jYwdjV8XWVdT1N3kH1KM=\
+\>"],ImageRangeCache->{{{0, 287}, {176.938, 0}} -> {0, -1, 0, 0}}],
+
+Cell[BoxData[
+ TagBox[
+  RowBox[{"\[SkeletonIndicator]", "Graphics", "\[SkeletonIndicator]"}],
+  False,
+  Editable->False]], "Output"]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"u", "[", "v_", "]"}], ":=", 
+  RowBox[{
+   RowBox[{"-", 
+    RowBox[{"ArcSin", "[", 
+     RowBox[{
+      RowBox[{"Cot", "[", "v", "]"}], "/", 
+      RowBox[{"Sqrt", "[", 
+       RowBox[{
+        RowBox[{
+         RowBox[{"(", 
+          RowBox[{"a", "/", 
+           SubscriptBox["c", "1"]}], ")"}], "^", "2"}], "-", "1"}], "]"}]}], 
+     "]"}]}], "+", 
+   SubscriptBox["c", "2"]}]}]], "Input"],
+
+Cell[CellGroupData[{
+
+Cell["Simplify[P u'[v]^2+2 Q u'[v]+R]", "Input",
+ ImageRegion->{{0, 1}, {0, 1}}],
+
+Cell[BoxData[
+ FractionBox[
+  SuperscriptBox["a", "4"], 
+  RowBox[{
+   SuperscriptBox["a", "2"], "-", 
+   RowBox[{
+    SuperscriptBox[
+     RowBox[{"Csc", "[", "v", "]"}], "2"], " ", 
+    SubsuperscriptBox["c", "1", "2"]}]}]]], "Output"]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Some Surface", "Section"],
+
+Cell[CellGroupData[{
+
+Cell["\<\
+{P,Q,R}=Geodesic[{a Cos[u]Sin[v],a Sin[u]Sin[v],c Cos[v]},{u,v}]\
+\>", "Input",
+ ImageRegion->{{0, 1}, {0, 1}}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{
+    SuperscriptBox["a", "2"], " ", 
+    SuperscriptBox[
+     RowBox[{"Sin", "[", "v", "]"}], "2"]}], ",", "0", ",", 
+   RowBox[{
+    FractionBox["1", "2"], " ", 
+    RowBox[{"(", 
+     RowBox[{
+      SuperscriptBox["a", "2"], "+", 
+      SuperscriptBox["c", "2"], "+", 
+      RowBox[{
+       RowBox[{"(", 
+        RowBox[{
+         SuperscriptBox["a", "2"], "-", 
+         SuperscriptBox["c", "2"]}], ")"}], " ", 
+       RowBox[{"Cos", "[", 
+        RowBox[{"2", " ", "v"}], "]"}]}]}], ")"}]}]}], "}"}]], "Output"]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Some Other Surface", "Section"],
+
+Cell[CellGroupData[{
+
+Cell["\<\
+{P,Q,R}=Geodesic[{a Cos[u]Sin[v],b Sin[u]Sin[v],c Cos[v]},{u,v}]\
+\>", "Input",
+ ImageRegion->{{0, 1}, {0, 1}}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"(", 
+     RowBox[{
+      RowBox[{
+       SuperscriptBox["b", "2"], " ", 
+       SuperscriptBox[
+        RowBox[{"Cos", "[", "u", "]"}], "2"]}], "+", 
+      RowBox[{
+       SuperscriptBox["a", "2"], " ", 
+       SuperscriptBox[
+        RowBox[{"Sin", "[", "u", "]"}], "2"]}]}], ")"}], " ", 
+    SuperscriptBox[
+     RowBox[{"Sin", "[", "v", "]"}], "2"]}], ",", 
+   RowBox[{
+    RowBox[{"(", 
+     RowBox[{
+      RowBox[{"-", 
+       SuperscriptBox["a", "2"]}], "+", 
+      SuperscriptBox["b", "2"]}], ")"}], " ", 
+    RowBox[{"Cos", "[", "u", "]"}], " ", 
+    RowBox[{"Cos", "[", "v", "]"}], " ", 
+    RowBox[{"Sin", "[", "u", "]"}], " ", 
+    RowBox[{"Sin", "[", "v", "]"}]}], ",", 
+   RowBox[{
+    RowBox[{
+     SuperscriptBox["a", "2"], " ", 
+     SuperscriptBox[
+      RowBox[{"Cos", "[", "u", "]"}], "2"], " ", 
+     SuperscriptBox[
+      RowBox[{"Cos", "[", "v", "]"}], "2"]}], "+", 
+    RowBox[{
+     SuperscriptBox["b", "2"], " ", 
+     SuperscriptBox[
+      RowBox[{"Cos", "[", "v", "]"}], "2"], " ", 
+     SuperscriptBox[
+      RowBox[{"Sin", "[", "u", "]"}], "2"]}], "+", 
+    RowBox[{
+     SuperscriptBox["c", "2"], " ", 
+     SuperscriptBox[
+      RowBox[{"Sin", "[", "v", "]"}], "2"]}]}]}], "}"}]], "Output"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+},
+WindowToolbars->{},
+WindowSize->{520, 715},
+WindowMargins->{{52, Automatic}, {Automatic, 4}},
+PrivateNotebookOptions->{"ColorPalette"->{RGBColor, -1}},
+ShowCellLabel->True,
+ShowCellTags->False,
+RenderingOptions->{"ObjectDithering"->True,
+"RasterDithering"->False},
+FrontEndVersion->"9.0 for Mac OS X x86 (32-bit, 64-bit Kernel) (March 5, \
+2013)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{
+ "Info3175804270-3568336"->{
+  Cell[10192, 332, 623, 12, 70, "Print",
+   CellTags->"Info3175804270-3568336"]}
+ }
+*)
+(*CellTagsIndex
+CellTagsIndex->{
+ {"Info3175804270-3568336", 29367, 1172}
+ }
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[579, 22, 25, 0, 92, "Title"],
+Cell[CellGroupData[{
+Cell[629, 26, 28, 0, 44, "Subsection"],
+Cell[660, 28, 53, 3, 49, "Text"],
+Cell[716, 33, 291, 9, 68, "Text"],
+Cell[1010, 44, 291, 10, 49, "Text"],
+Cell[1304, 56, 99, 2, 49, "Text"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[1440, 63, 26, 0, 44, "Subsection"],
+Cell[1469, 65, 1845, 56, 131, "Input"],
+Cell[3317, 123, 2801, 80, 199, "Input"],
+Cell[CellGroupData[{
+Cell[6143, 207, 504, 16, 63, "Input"],
+Cell[6650, 225, 155, 3, 35, "Message"],
+Cell[6808, 230, 155, 3, 70, "Message"],
+Cell[6966, 235, 155, 3, 70, "Message"],
+Cell[7124, 240, 204, 4, 70, "Message"],
+Cell[7331, 246, 2771, 78, 70, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[10139, 329, 50, 1, 70, "Input"],
+Cell[10192, 332, 623, 12, 70, "Print",
+ CellTags->"Info3175804270-3568336"]
+}, Open  ]],
+Cell[10830, 347, 99, 2, 70, "Text"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[10966, 354, 25, 0, 70, "Section"],
+Cell[CellGroupData[{
+Cell[11016, 358, 108, 1, 70, "Input"],
+Cell[11127, 361, 217, 7, 70, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[11381, 373, 283, 10, 70, "Input"],
+Cell[11667, 385, 355, 12, 70, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[12059, 402, 131, 3, 70, "Input"],
+Cell[12193, 407, 261, 9, 70, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[12491, 421, 890, 28, 70, "Input"],
+Cell[13384, 451, 582, 20, 70, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[14003, 476, 1009, 33, 70, "Input"],
+Cell[15015, 511, 10563, 509, 70, 8360, 471, "GraphicsData", "PostScript", \
+"Graphics"],
+Cell[25581, 1022, 134, 4, 70, "Output"]
+}, Open  ]],
+Cell[25730, 1029, 429, 15, 70, "Input"],
+Cell[CellGroupData[{
+Cell[26184, 1048, 80, 1, 70, "Input"],
+Cell[26267, 1051, 237, 8, 70, "Output"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[26553, 1065, 31, 0, 70, "Section"],
+Cell[CellGroupData[{
+Cell[26609, 1069, 121, 3, 70, "Input"],
+Cell[26733, 1074, 566, 19, 70, "Output"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[27348, 1099, 37, 0, 70, "Section"],
+Cell[CellGroupData[{
+Cell[27410, 1103, 121, 3, 70, "Input"],
+Cell[27534, 1108, 1286, 42, 70, "Output"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)
+
