@@ -1,0 +1,77 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 14.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[      2009,         67]
+NotebookOptionsPosition[      1660,         53]
+NotebookOutlinePosition[      2057,         69]
+CellTagsIndexPosition[      2014,         66]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"x", "[", 
+   RowBox[{"a_", ",", " ", "\[Phi]_"}], "]"}], ":=", " ", 
+  RowBox[{
+   SqrtBox[
+    RowBox[{
+     RowBox[{"a", " ", 
+      RowBox[{
+       RowBox[{"Cos", "[", "\[Phi]", "]"}], "^", "2"}]}], " ", "+", " ", 
+     RowBox[{
+      RowBox[{"Sin", "[", "\[Phi]", "]"}], "^", "2"}]}]], 
+   RowBox[{"Cos", "[", "\[Phi]", "]"}]}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"y", "[", 
+   RowBox[{"a_", ",", " ", "\[Phi]_"}], "]"}], ":=", " ", 
+  RowBox[{
+   SqrtBox[
+    RowBox[{
+     RowBox[{"a", " ", 
+      RowBox[{
+       RowBox[{"Cos", "[", "\[Phi]", "]"}], "^", "2"}]}], " ", "+", " ", 
+     RowBox[{
+      RowBox[{"Sin", "[", "\[Phi]", "]"}], "^", "2"}]}]], 
+   RowBox[{"Sin", "[", "\[Phi]", "]"}]}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"Evolute1", "[", 
+   RowBox[{"a_", ",", "\[Phi]_"}], "]"}], ":="}]}], "Input",
+ CellChangeTimes->{{3.921222392765308*^9, 3.921222404319024*^9}, {
+  3.921222439659357*^9, 3.9212224432638063`*^9}, {3.921222483592731*^9, 
+  3.9212225750787687`*^9}},ExpressionUUID->"27c49092-ea35-449b-999b-\
+a8cb51c5e316"]
+},
+WindowSize->{Full, Full},
+WindowMargins->{{0, Automatic}, {Automatic, 0}},
+FrontEndVersion->"14.0 for Mac OS X x86 (64-bit) (December 12, 2023)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"1bc110bb-5130-48a2-8156-11381d69eff1"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[558, 20, 1098, 31, 78, "Input",ExpressionUUID->"27c49092-ea35-449b-999b-a8cb51c5e316"]
+}
+]
+*)
+
+(* End of internal cache information *)
+

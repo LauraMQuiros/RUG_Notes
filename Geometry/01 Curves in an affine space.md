@@ -1,7 +1,7 @@
 TA Leendert Los (p.l.Los@rug.nl)
 [[Geometry]]
 
-[[Vector Space]]: set of vectors equipped with vector addition and scalar multiplication. In a vector space V for all vectors in V and all scalars in $\mathbb{K}$ we have identity, distirbutivity, existence of a 0 vector, associativity and closure in addition and multiplication.
+[[Vector Space]]: set of vectors equipped with vector addition and scalar multiplication. In a vector space V for all vectors in V and all scalars in $\mathbb{K}$ we have identity, distributivity, existence of a 0 vector, associativity and closure in addition and multiplication.
 
 >[!info] Notation
 >The field $\mathbb{K}$ can be thought of as a general field. $\mathbb{Z}$ denotes the set of integers both positive and negative. Operations in both include addition and multiplication. 
@@ -72,6 +72,6 @@ If the derivation of the point is not 0 ($x'(t_0) \neq 0$), then locally:
 1. we can parametrise $\gamma$ by $x$ such that $y$ is a function of $x$. So $\gamma (t(x)) = (x, y(x))$ locally near $(x(t_0), y(t_0))$ 
 2. curve $\gamma$ can also be described by implicit equation $F(x,y)=0$ 
 3. the [[Jacobian matrix]] F at the point is non-zero, ensuring [[Implicit Function Theorem (IFT)]] can be used locally $dF(x_0, y_0) \neq 0$ 
-
 if parabola $y=x^2$, $(x(t), y(t))=(t,t^2)$ or $F(x,y)= y-x^2=0$
+
 [[Bernoulli Lemniscate]]: $\infty$ shaped ellipse, used for tracing classic asymptotes, formula $(x^2+y^2)^2= a(x^2 + y^2)$ for which $a = 2 \sqrt{c}$ 

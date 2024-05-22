@@ -1,0 +1,465 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 14.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     16766,        455]
+NotebookOptionsPosition[     16198,        437]
+NotebookOutlinePosition[     16595,        453]
+CellTagsIndexPosition[     16552,        450]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["Question 3", "Title",
+ CellChangeTimes->{{3.921672013232032*^9, 
+  3.921672015132256*^9}},ExpressionUUID->"e592731a-aae3-4395-b902-\
+ff8e40cdda50"],
+
+Cell[TextData[{
+ "a) Consider an (n + 1)-dimensional affine space ",
+ Cell[BoxData[
+  FormBox[
+   TemplateBox[<|"boxes" -> FormBox[
+       SuperscriptBox[
+        StyleBox["K", "TI"], 
+        RowBox[{
+          StyleBox["n", "TI"], "+", "1"}]], TraditionalForm], "errors" -> {}, 
+     "input" -> "K^{n+1}", "state" -> "Boxes"|>,
+    "TeXAssistantTemplate"], TraditionalForm]],ExpressionUUID->
+  "d5ab2a07-89b4-4956-89bd-2b49e498a28e"],
+ " over a field K. Let ",
+ Cell[BoxData[
+  FormBox[
+   TemplateBox[<|"boxes" -> FormBox[
+       SubscriptBox[
+        StyleBox["P", "TI"], "1"], TraditionalForm], "errors" -> {}, "input" -> 
+     "P_1", "state" -> "Boxes"|>,
+    "TeXAssistantTemplate"], TraditionalForm]],ExpressionUUID->
+  "d8be1ee2-5886-4c96-808a-14ee52700fd3"],
+ " and ",
+ Cell[BoxData[
+  FormBox[
+   TemplateBox[<|"boxes" -> FormBox[
+       SubscriptBox[
+        StyleBox["P", "TI"], "2"], TraditionalForm], "errors" -> {}, "input" -> 
+     "P_2", "state" -> "Boxes"|>,
+    "TeXAssistantTemplate"], TraditionalForm]],ExpressionUUID->
+  "b33cdc8d-78f6-4169-b860-ac4910d139e9"],
+ " be two distinct hyperplanes in this space and let ",
+ Cell[BoxData[
+  FormBox[
+   TemplateBox[<|"boxes" -> FormBox[
+       RowBox[{
+         StyleBox["f", "TI"], ":", 
+         SubscriptBox[
+          StyleBox["P", "TI"], "1"], "\[Rule]", 
+         SubscriptBox[
+          StyleBox["P", "TI"], "2"]}], TraditionalForm], "errors" -> {}, 
+     "input" -> "f : P_1 \\to P_2", "state" -> "Boxes"|>,
+    "TeXAssistantTemplate"], TraditionalForm]],ExpressionUUID->
+  "ef775dce-9783-4a55-afba-ab3a4c7c5fec"],
+ " be a perspectivity with center ",
+ Cell[BoxData[
+  FormBox[
+   TemplateBox[<|"boxes" -> FormBox[
+       RowBox[{
+         StyleBox["O", "TI"], "\[Element]", 
+         SuperscriptBox[
+          StyleBox["K", "TI"], 
+          RowBox[{
+            StyleBox["n", "TI"], "+", "1"}]], "\\", 
+         RowBox[{"(", 
+           RowBox[{
+             SubscriptBox[
+              StyleBox["P", "TI"], "1"], "\[Union]", 
+             SubscriptBox[
+              StyleBox["P", "TI"], "2"]}]}]}], TraditionalForm], 
+     "errors" -> {}, "input" -> "O \\in K^{n+1} \\setminus (P_1 \\cup P_2", 
+     "state" -> "Boxes"|>,
+    "TeXAssistantTemplate"], TraditionalForm]],ExpressionUUID->
+  "35139704-7dc2-4450-a563-3c2a164e987d"],
+ "). Show that ",
+ Cell[BoxData[
+  FormBox[
+   TemplateBox[<|"boxes" -> FormBox[
+       StyleBox["f", "TI"], TraditionalForm], "errors" -> {}, "input" -> "f ",
+      "state" -> "Boxes"|>,
+    "TeXAssistantTemplate"], TraditionalForm]],ExpressionUUID->
+  "90bb309a-a303-4ffc-bd08-355fd59175ab"],
+ "is an affine map if and only if ",
+ Cell[BoxData[
+  FormBox[
+   TemplateBox[<|"boxes" -> FormBox[
+       SubscriptBox[
+        StyleBox["P", "TI"], "1"], TraditionalForm], "errors" -> {}, "input" -> 
+     "P_1", "state" -> "Boxes"|>,
+    "TeXAssistantTemplate"], TraditionalForm]],ExpressionUUID->
+  "5aaaa207-fd8b-4810-a3bf-3f9b8dc5ba8a"],
+ " and ",
+ Cell[BoxData[
+  FormBox[
+   TemplateBox[<|"boxes" -> FormBox[
+       SubscriptBox[
+        StyleBox["P", "TI"], "2"], TraditionalForm], "errors" -> {}, "input" -> 
+     "P_2", "state" -> "Boxes"|>,
+    "TeXAssistantTemplate"], TraditionalForm]],ExpressionUUID->
+  "71dfee2c-0979-4cdb-abfa-297a590852a3"],
+ " are parallel.\n\nLet\[CloseCurlyQuote]s define the perspectivity ",
+ Cell[BoxData[
+  FormBox[
+   TemplateBox[<|"boxes" -> FormBox[
+       StyleBox["f", "TI"], TraditionalForm], "errors" -> {}, "input" -> "f", 
+     "state" -> "Boxes"|>,
+    "TeXAssistantTemplate"], TraditionalForm]],ExpressionUUID->
+  "5249786a-96c4-419b-ae11-c43b2208a1b3"],
+ " for hyperplanes. For a point ",
+ Cell[BoxData[
+  FormBox[
+   TemplateBox[<|"boxes" -> FormBox[
+       StyleBox["x", "TI"], TraditionalForm], "errors" -> {}, "input" -> "x", 
+     "state" -> "Boxes"|>,
+    "TeXAssistantTemplate"], TraditionalForm]],ExpressionUUID->
+  "9421d135-b4e3-480a-a68e-de9f85159eac"],
+ " in ",
+ Cell[BoxData[
+  FormBox[
+   TemplateBox[<|"boxes" -> FormBox[
+       SubscriptBox[
+        StyleBox["P", "TI"], "1"], TraditionalForm], "errors" -> {}, "input" -> 
+     "P_1", "state" -> "Boxes"|>,
+    "TeXAssistantTemplate"], TraditionalForm]],ExpressionUUID->
+  "573be6a7-a56f-4318-82d7-de89d2f7bcf9"],
+ ", ",
+ Cell[BoxData[
+  FormBox[
+   TemplateBox[<|"boxes" -> FormBox[
+       RowBox[{
+         StyleBox["f", "TI"], "(", 
+         StyleBox["x", "TI"], ")"}], TraditionalForm], "errors" -> {}, 
+     "input" -> "f(x)", "state" -> "Boxes"|>,
+    "TeXAssistantTemplate"], TraditionalForm]],ExpressionUUID->
+  "155412d9-265b-4db9-890b-4ce404ce36e2"],
+ " is defined as the intersection point of the line ",
+ Cell[BoxData[
+  FormBox[
+   TemplateBox[<|"boxes" -> FormBox[
+       RowBox[{
+         StyleBox["O", "TI"], 
+         StyleBox["X", "TI"]}], TraditionalForm], "errors" -> {}, "input" -> 
+     "OX", "state" -> "Boxes"|>,
+    "TeXAssistantTemplate"], TraditionalForm]],ExpressionUUID->
+  "471da2e2-8102-494c-a9ad-b6871dab5206"],
+ " with ",
+ Cell[BoxData[
+  FormBox[
+   TemplateBox[<|"boxes" -> FormBox[
+       SubscriptBox[
+        StyleBox["P", "TI"], "2"], TraditionalForm], "errors" -> {}, "input" -> 
+     "P_2", "state" -> "Boxes"|>,
+    "TeXAssistantTemplate"], TraditionalForm]],ExpressionUUID->
+  "aa7b2dd2-03f0-4dbf-9e4c-73ce82573d58"],
+ " if these hyperplanes intersect. If the line ",
+ Cell[BoxData[
+  FormBox[
+   TemplateBox[<|"boxes" -> FormBox[
+       RowBox[{
+         StyleBox["O", "TI"], 
+         StyleBox["X", "TI"]}], TraditionalForm], "errors" -> {}, "input" -> 
+     "OX", "state" -> "Boxes"|>,
+    "TeXAssistantTemplate"], TraditionalForm]],ExpressionUUID->
+  "98c62b87-8fd6-4d93-953b-a0152cad1796"],
+ " is parallel to ",
+ Cell[BoxData[
+  FormBox[
+   TemplateBox[<|"boxes" -> FormBox[
+       SubscriptBox[
+        StyleBox["P", "TI"], "2"], TraditionalForm], "errors" -> {}, "input" -> 
+     "P_2", "state" -> "Boxes"|>,
+    "TeXAssistantTemplate"], TraditionalForm]],ExpressionUUID->
+  "26a8889a-d820-4f99-973e-581c1b2d0a99"],
+ ", then ",
+ Cell[BoxData[
+  FormBox[
+   TemplateBox[<|"boxes" -> FormBox[
+       RowBox[{
+         StyleBox["f", "TI"], "(", 
+         StyleBox["x", "TI"], ")"}], TraditionalForm], "errors" -> {}, 
+     "input" -> "f(x)", "state" -> "Boxes"|>,
+    "TeXAssistantTemplate"], TraditionalForm]],ExpressionUUID->
+  "39b8cb88-4083-4f12-90d8-c7d2c159d4f5"],
+ " is defined to be the point at infinity of ",
+ Cell[BoxData[
+  FormBox[
+   TemplateBox[<|"boxes" -> FormBox[
+       SubscriptBox[
+        StyleBox["P", "TI"], "2"], TraditionalForm], "errors" -> {}, "input" -> 
+     "P_2", "state" -> "Boxes"|>,
+    "TeXAssistantTemplate"], TraditionalForm]],ExpressionUUID->
+  "7d40e687-d22a-4a0b-b402-e0159c27270b"],
+ ".\n\nFirst, let\[CloseCurlyQuote]s establish that ",
+ Cell[BoxData[
+  FormBox[
+   TemplateBox[<|"boxes" -> FormBox[
+       SubscriptBox[
+        StyleBox["P", "TI"], "1"], TraditionalForm], "errors" -> {}, "input" -> 
+     "P_1", "state" -> "Boxes"|>,
+    "TeXAssistantTemplate"], TraditionalForm]],ExpressionUUID->
+  "756edccb-4be6-4aa7-8a89-522789019471"],
+ " and ",
+ Cell[BoxData[
+  FormBox[
+   TemplateBox[<|"boxes" -> FormBox[
+       SubscriptBox[
+        StyleBox["P", "TI"], "2"], TraditionalForm], "errors" -> {}, "input" -> 
+     "P_2", "state" -> "Boxes"|>,
+    "TeXAssistantTemplate"], TraditionalForm]],ExpressionUUID->
+  "6590fb33-48db-4bb5-a5ae-b16a424fba91"],
+ " must be parallel. Without loss of generality, we can assume O is the \
+origin in ",
+ Cell[BoxData[
+  FormBox[
+   TemplateBox[<|"boxes" -> FormBox[
+       SuperscriptBox[
+        StyleBox["K", "TI"], 
+        RowBox[{"(", 
+          RowBox[{
+            StyleBox["n", "TI"], "+", "1"}], ")"}]], TraditionalForm], 
+     "errors" -> {}, "input" -> "K^(n+1)", "state" -> "Boxes"|>,
+    "TeXAssistantTemplate"], TraditionalForm]],ExpressionUUID->
+  "fc345f19-6aa9-43f7-95be-a208ba93a942"],
+ " and ",
+ Cell[BoxData[
+  FormBox[
+   TemplateBox[<|"boxes" -> FormBox[
+       SubscriptBox[
+        StyleBox["P", "TI"], 
+        StyleBox["i", "TI"]], TraditionalForm], "errors" -> {}, "input" -> 
+     "P_i", "state" -> "Boxes"|>,
+    "TeXAssistantTemplate"], TraditionalForm]],ExpressionUUID->
+  "35332c54-003e-4ba8-b0ea-2add71986ed6"],
+ " is given by {",
+ Cell[BoxData[
+  FormBox[
+   TemplateBox[<|"boxes" -> FormBox[
+       RowBox[{
+         RowBox[{"(", 
+           RowBox[{
+             SubscriptBox[
+              StyleBox["x", "TI"], "1"], ",", 
+             SubscriptBox[
+              StyleBox["x", "TI"], "2"], ",", "...", ",", 
+             SubscriptBox[
+              StyleBox["x", "TI"], 
+              RowBox[{
+                StyleBox["n", "TI"], "+", "1"}]]}], ")"}], "\[Element]", 
+         SuperscriptBox[
+          StyleBox["K", "TI"], 
+          RowBox[{"(", 
+            RowBox[{
+              StyleBox["n", "TI"], "+", "1"}], ")"}]], "|", 
+         SubscriptBox[
+          StyleBox["x", "TI"], 
+          RowBox[{
+            StyleBox["n", "TI"], "+", "1"}]], "\[LongEqual]", 
+         SubscriptBox[
+          StyleBox["c", "TI"], 
+          StyleBox["i", "TI"]]}], TraditionalForm], "errors" -> {}, "input" -> 
+     "(x_1, x_2, ..., x_{n+1}) \\in K^(n+1) | x_{n+1} = c_i", "state" -> 
+     "Boxes"|>,
+    "TeXAssistantTemplate"], TraditionalForm]],ExpressionUUID->
+  "b14dc080-0ac0-4d35-b0bb-b560f7581913"],
+ "}, where ",
+ Cell[BoxData[
+  FormBox[
+   TemplateBox[<|"boxes" -> FormBox[
+       RowBox[{
+         SubscriptBox[
+          StyleBox["c", "TI"], 
+          StyleBox["i", "TI"]], "\[NotEqual]", "0"}], TraditionalForm], 
+     "errors" -> {}, "input" -> "c_i \\neq 0", "state" -> "Boxes"|>,
+    "TeXAssistantTemplate"], TraditionalForm]],ExpressionUUID->
+  "214977a3-bf61-45dd-83f3-86b1e4c30469"],
+ " for ",
+ Cell[BoxData[
+  FormBox[
+   TemplateBox[<|"boxes" -> FormBox[
+       RowBox[{
+         StyleBox["i", "TI"], "\[LongEqual]", "1", ",", "2"}], 
+       TraditionalForm], "errors" -> {}, "input" -> "i = 1, 2", "state" -> 
+     "Boxes"|>,
+    "TeXAssistantTemplate"], TraditionalForm]],ExpressionUUID->
+  "2689e0ae-a2bc-4bb1-acc5-2a67ff899607"],
+ ".\n\nIf ",
+ Cell[BoxData[
+  FormBox[
+   TemplateBox[<|"boxes" -> FormBox[
+       SubscriptBox[
+        StyleBox["P", "TI"], "1"], TraditionalForm], "errors" -> {}, "input" -> 
+     "P_1", "state" -> "Boxes"|>,
+    "TeXAssistantTemplate"], TraditionalForm]],ExpressionUUID->
+  "22912a55-fee9-43f8-ac69-2bc609fa295c"],
+ " and ",
+ Cell[BoxData[
+  FormBox[
+   TemplateBox[<|"boxes" -> FormBox[
+       SubscriptBox[
+        StyleBox["P", "TI"], "2"], TraditionalForm], "errors" -> {}, "input" -> 
+     "P_2", "state" -> "Boxes"|>,
+    "TeXAssistantTemplate"], TraditionalForm]],ExpressionUUID->
+  "dc15878c-b788-4e60-a3e1-598274e79cb6"],
+ " are not parallel, then ",
+ Cell[BoxData[
+  FormBox[
+   TemplateBox[<|"boxes" -> FormBox[
+       StyleBox["f", "TI"], TraditionalForm], "errors" -> {}, "input" -> "f", 
+     "state" -> "Boxes"|>,
+    "TeXAssistantTemplate"], TraditionalForm]],ExpressionUUID->
+  "5acdb179-24f5-4472-83f8-08e10df6008a"],
+ " sends a point from ",
+ Cell[BoxData[
+  FormBox[
+   TemplateBox[<|"boxes" -> FormBox[
+       SubscriptBox[
+        StyleBox["P", "TI"], "1"], TraditionalForm], "errors" -> {}, "input" -> 
+     "P_1", "state" -> "Boxes"|>,
+    "TeXAssistantTemplate"], TraditionalForm]],ExpressionUUID->
+  "0069628d-501f-4f23-869c-64b36d906810"],
+ " to a point at infinity in ",
+ Cell[BoxData[
+  FormBox[
+   TemplateBox[<|"boxes" -> FormBox[
+       SubscriptBox[
+        StyleBox["P", "TI"], "2"], TraditionalForm], "errors" -> {}, "input" -> 
+     "P_2", "state" -> "Boxes"|>,
+    "TeXAssistantTemplate"], TraditionalForm]],ExpressionUUID->
+  "3484ed2f-24a7-4bd6-a673-e72e89bdca2f"],
+ ", which violates the definition of a perspectivity. Now, let\
+\[CloseCurlyQuote]s consider ",
+ Cell[BoxData[
+  FormBox[
+   TemplateBox[<|"boxes" -> FormBox[
+       StyleBox["f", "TI"], TraditionalForm], "errors" -> {}, "input" -> "f", 
+     "state" -> "Boxes"|>,
+    "TeXAssistantTemplate"], TraditionalForm]],ExpressionUUID->
+  "b64df835-3217-4ca9-8668-e05a40337a97"],
+ " from ",
+ Cell[BoxData[
+  FormBox[
+   TemplateBox[<|"boxes" -> FormBox[
+       SubscriptBox[
+        StyleBox["P", "TI"], "1"], TraditionalForm], "errors" -> {}, "input" -> 
+     "P_1", "state" -> "Boxes"|>,
+    "TeXAssistantTemplate"], TraditionalForm]],ExpressionUUID->
+  "f3918223-44a8-42b8-991d-e9265244f5d0"],
+ " to ",
+ Cell[BoxData[
+  FormBox[
+   TemplateBox[<|"boxes" -> FormBox[
+       SubscriptBox[
+        StyleBox["P", "TI"], "2"], TraditionalForm], "errors" -> {}, "input" -> 
+     "P_2", "state" -> "Boxes"|>,
+    "TeXAssistantTemplate"], TraditionalForm]],ExpressionUUID->
+  "829d7824-bcd7-4ba5-9348-6d50980f87a7"],
+ " with center O, f(x) is defined as the intersection point of the line OX \
+with P_2 if these hyperplanes intersect.\nIf the line OX is parallel to P_2, \
+then f(x) is defined to be the point at infinity of P_2.\n\nf is an affine \
+map if and only if the linear part of f is a translation, i.e., it does not \
+depend on the affine component x_{n+1}. This happens if and only if P_1 and \
+P_2 are parallel.\n\n",
+ Cell[BoxData[
+  FormBox[
+   TemplateBox[<|"boxes" -> FormBox[
+       StyleBox["f", "TI"], TraditionalForm], "errors" -> {}, "input" -> "f", 
+     "state" -> "Boxes"|>,
+    "TeXAssistantTemplate"], TraditionalForm]],ExpressionUUID->
+  "ab6d2182-2a37-4f67-b843-fb867301ae07"],
+ " is an affine map if and only if the linear part of ",
+ Cell[BoxData[
+  FormBox[
+   TemplateBox[<|"boxes" -> FormBox[
+       StyleBox["f", "TI"], TraditionalForm], "errors" -> {}, "input" -> "f", 
+     "state" -> "Boxes"|>,
+    "TeXAssistantTemplate"], TraditionalForm]],ExpressionUUID->
+  "0778fa4c-1dc5-409d-af62-8c1279a83461"],
+ " is a translation,  i.e., it does not depend on the affine component ",
+ Cell[BoxData[
+  FormBox[
+   TemplateBox[<|"boxes" -> FormBox[
+       SubscriptBox[
+        StyleBox["c", "TI"], "1"], TraditionalForm], "errors" -> {}, "input" -> 
+     "c_1", "state" -> "Boxes"|>,
+    "TeXAssistantTemplate"], TraditionalForm]],ExpressionUUID->
+  "a2c77efb-945c-439c-91b8-61a7ca57cb23"],
+ ".\nTherefore, the linear part of f is a scaling given by ",
+ Cell[BoxData[
+  FormBox[
+   TemplateBox[<|"boxes" -> FormBox[
+       RowBox[{
+         StyleBox["x", "TI"], "\[RightTeeArrow]", "\[Lambda]", 
+         StyleBox["x", "TI"]}], TraditionalForm], "errors" -> {}, "input" -> 
+     "x \\mapsto \\lambda x", "state" -> "Boxes"|>,
+    "TeXAssistantTemplate"], TraditionalForm]],ExpressionUUID->
+  "bf27a30c-fa96-4b2b-be4b-4afa75a36124"],
+ " for some constant ",
+ Cell[BoxData[
+  FormBox[
+   TemplateBox[<|"boxes" -> FormBox[
+       RowBox[{"\[Lambda]", "\[Element]", 
+         StyleBox["K", "TI"], "\\0"}], TraditionalForm], "errors" -> {}, 
+     "input" -> "\\lambda \\in K \\setminus {0}", "state" -> "Boxes"|>,
+    "TeXAssistantTemplate"], TraditionalForm]],ExpressionUUID->
+  "af0da580-448b-4a02-82a4-59dbd90be754"],
+ ".\n"
+}], "Text",
+ CellChangeTimes->{{3.921672021553088*^9, 3.921672160401086*^9}, 
+   3.921672387037307*^9, {3.9216728156267843`*^9, 3.921673026529764*^9}, {
+   3.921673135855763*^9, 3.921673182276499*^9}, {3.921673266708728*^9, 
+   3.921673303123513*^9}, {3.921673341095417*^9, 
+   3.9216733602945337`*^9}},ExpressionUUID->"85fc4810-edf9-47c9-95f1-\
+133ce91cc4ca"],
+
+Cell["", "Text",
+ CellChangeTimes->{{3.921672483945692*^9, 3.9216725360531387`*^9}, {
+  3.9216727406816187`*^9, 
+  3.921672742224732*^9}},ExpressionUUID->"df0c64a0-a279-413d-a1d9-\
+7c3f7e5a0353"]
+}, Open  ]]
+},
+WindowSize->{808, 896},
+WindowMargins->{{20, Automatic}, {Automatic, 44}},
+FrontEndVersion->"14.0 for Mac OS X x86 (64-bit) (December 12, 2023)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"33ca1cde-efae-46d4-8928-5df6a5a018ab"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 153, 3, 98, "Title",ExpressionUUID->"e592731a-aae3-4395-b902-ff8e40cdda50"],
+Cell[736, 27, 15248, 401, 566, "Text",ExpressionUUID->"85fc4810-edf9-47c9-95f1-133ce91cc4ca"],
+Cell[15987, 430, 195, 4, 35, "Text",ExpressionUUID->"df0c64a0-a279-413d-a1d9-7c3f7e5a0353"]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)
+

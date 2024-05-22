@@ -1,0 +1,979 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 14.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     35970,        969]
+NotebookOptionsPosition[     33710,        925]
+NotebookOutlinePosition[     34105,        941]
+CellTagsIndexPosition[     34062,        938]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[TextData[{
+ "1. Consider a mass-spring-damper system modeled as\n",
+ Cell[BoxData[
+  FormBox[
+   TemplateBox[<|"boxes" -> FormBox[
+       RowBox[{
+         StyleBox["m", "TI"], 
+         OverscriptBox[
+          StyleBox["q", "TI"], "\:0308"], "+", 
+         StyleBox["b", "TI"], 
+         OverscriptBox[
+          StyleBox["q", "TI"], "."], "+", 
+         StyleBox["k", "TI"], 
+         StyleBox["q", "TI"], "\[LongEqual]", 
+         StyleBox["u", "TI"]}], TraditionalForm], "errors" -> {}, "input" -> 
+     "m \\Ddot{q} +b\\Dot{q}+  kq = u", "state" -> "Boxes"|>,
+    "TeXAssistantTemplate"], TraditionalForm]],ExpressionUUID->
+  "7a27a703-75a9-416b-9aae-a6fb3fc505d0"],
+ "\nwith q the position of mass m, b the damping coefficient, and k the \
+spring constant\n1. Derive a state space model from (1) with state ",
+ Cell[BoxData[
+  FormBox[
+   TemplateBox[<|"boxes" -> FormBox[
+       RowBox[{
+         SubscriptBox[
+          StyleBox["x", "TI"], "1"], "\[LongEqual]", 
+         StyleBox["q", "TI"], ",", 
+         SubscriptBox[
+          StyleBox["x", "TI"], "2"], "\[LongEqual]", 
+         OverscriptBox[
+          StyleBox["q", "TI"], "."]}], TraditionalForm], "errors" -> {}, 
+     "input" -> "x_1 = q, x_2 = \\Dot{q} ", "state" -> "Boxes"|>,
+    "TeXAssistantTemplate"], TraditionalForm]],ExpressionUUID->
+  "d836fecf-bdcb-46e1-8a8b-183cd3fd79a1"],
+ " and the position q as the output.\n2. From the state space model determine \
+the equilibrium point(s) for the system for ",
+ Cell[BoxData[
+  FormBox[
+   TemplateBox[<|"boxes" -> FormBox[
+       RowBox[{
+         StyleBox["u", "TI"], "\[LongEqual]", "0"}], TraditionalForm], 
+     "errors" -> {}, "input" -> "u = 0", "state" -> "Boxes"|>,
+    "TeXAssistantTemplate"], TraditionalForm]],ExpressionUUID->
+  "aaf8d783-48b2-4212-960c-971de43c5042"],
+ ". Check\ntheir stability using the phase portrait below (m = 2kg, b = \
+1kg/s, and k = 2kg/s2)."
+}], "Subsection",
+ CellChangeTimes->{{3.923557975729569*^9, 3.923558078903757*^9}, 
+   3.923558123402603*^9, {3.923558651749433*^9, 
+   3.9235586521671658`*^9}},ExpressionUUID->"df792c54-595a-47e2-b745-\
+da19255c19ef"],
+
+Cell["Solution for 1: ", "Text",
+ CellChangeTimes->{{3.92355809722402*^9, 3.923558100036051*^9}, 
+   3.923558148257483*^9, {3.9235582844424*^9, 
+   3.9235583756598387`*^9}},ExpressionUUID->"0d1373a3-e241-4869-a93d-\
+4bb206c776ed"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"x1", "[", "q_", "]"}], "=", "q"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"x2", "[", "q_", "]"}], "=", " ", 
+   RowBox[{"D", "[", 
+    RowBox[{
+     RowBox[{"x1", "[", "q", "]"}], ",", "q"}], "]"}]}], 
+  " "}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"dx1", "[", "q_", "]"}], "=", " ", 
+  RowBox[{"x2", "[", "q", "]"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"dx2", "[", "q_", "]"}], "=", " ", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"\\", "Ddot"}], 
+    RowBox[{"{", "q", "}"}]}], "=", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"-", 
+      RowBox[{"\\", "frac"}]}], 
+     RowBox[{"{", "b", "}"}], 
+     RowBox[{"{", "m", "}"}], 
+     RowBox[{"x2", "[", "q", "]"}]}], "-", 
+    RowBox[{
+     RowBox[{"\\", "frac"}], 
+     RowBox[{"{", "k", "}"}], 
+     RowBox[{"{", "m", "}"}], 
+     RowBox[{"x1", "[", "q", "]"}]}], "+", " ", 
+    RowBox[{
+     RowBox[{"\\", "frac"}], 
+     RowBox[{"{", "u", "}"}], 
+     RowBox[{"{", "m", "}"}]}]}]}]}]}], "Input",
+ CellChangeTimes->{{3.923558380160932*^9, 3.923558427674677*^9}, {
+  3.923558471424667*^9, 
+  3.923558536626945*^9}},ExpressionUUID->"c5017ea4-c464-4a97-9a2f-\
+577858a1e9ee"],
+
+Cell[BoxData[""], "Input",
+ CellChangeTimes->{
+  3.923558456431736*^9, {3.923558541330812*^9, 
+   3.923558542174994*^9}},ExpressionUUID->"b35f5610-9d4b-48f2-880a-\
+cb6fea614546"],
+
+Cell["\<\
+b) We can argue that at the equilibrium nothing is changing so there\
+\[CloseCurlyQuote]s an equilibrium at (0,0) according to the plot\
+\>", "Text",
+ CellChangeTimes->{{3.923558546949806*^9, 3.923558558534142*^9}, {
+  3.923558625743956*^9, 
+  3.923558645593485*^9}},ExpressionUUID->"13575178-e2b2-475b-8531-\
+f23ded4fe7d7"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["\<\
+3. Assume that the control objective is to stabilize the system at the \
+position q = 2. Without any control (u = 0), is the control objective \
+achieved?\
+\>", "Subsection",
+ CellChangeTimes->{{3.9235586804030457`*^9, 3.9235586809250402`*^9}, {
+  3.9235587395452843`*^9, 
+  3.923558747341297*^9}},ExpressionUUID->"5d61dbef-b0f8-493b-9251-\
+d834b9476aa9"],
+
+Cell["\<\
+It\[CloseCurlyQuote]s not possible to stabilise at q=2 without control, \
+because the system will converge in the equilibrium\
+\>", "Text",
+ CellChangeTimes->{{3.923558687427148*^9, 
+  3.923558719517968*^9}},ExpressionUUID->"76dd2fac-3aa4-4d82-8fc7-\
+fd2726555d18"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Phase portraits", "Section",
+ CellChangeTimes->{{3.923558778214986*^9, 
+  3.9235587858903637`*^9}},ExpressionUUID->"40f5ec5e-f110-4c29-b1cc-\
+3ab9d397d293"],
+
+Cell[TextData[{
+ "4. Now consider the case where we apply a proportional controller ",
+ Cell[BoxData[
+  FormBox[
+   TemplateBox[<|"boxes" -> FormBox[
+       RowBox[{
+         StyleBox["u", "TI"], "\[LongEqual]", 
+         SubscriptBox[
+          StyleBox["k", "TI"], 
+          StyleBox["p", "TI"]], 
+         RowBox[{"(", 
+           RowBox[{
+             StyleBox["r", "TI"], "*", "-", 
+             StyleBox["q", "TI"]}], ")"}]}], TraditionalForm], "errors" -> {},
+      "input" -> "u = k_p (r* -q)", "state" -> "Boxes"|>,
+    "TeXAssistantTemplate"], TraditionalForm]],ExpressionUUID->
+  "b2f1ed90-0db1-4e17-af9e-b5c81d9e493b"],
+ ", with proportional gain ",
+ Cell[BoxData[
+  FormBox[
+   TemplateBox[<|"boxes" -> FormBox[
+       RowBox[{
+         SubscriptBox[
+          StyleBox["k", "TI"], 
+          StyleBox["p", "TI"]], "\[LongEqual]", "2"}], TraditionalForm], 
+     "errors" -> {}, "input" -> "k_p = 2", "state" -> "Boxes"|>,
+    "TeXAssistantTemplate"], TraditionalForm]],ExpressionUUID->
+  "21ab30f2-72ed-471b-b3c6-6319d6c28c72"],
+ " and reference signal ",
+ Cell[BoxData[
+  FormBox[
+   TemplateBox[<|"boxes" -> FormBox[
+       RowBox[{
+         StyleBox["r", "TI"], "*", "\[LongEqual]", "2"}], TraditionalForm], 
+     "errors" -> {}, "input" -> "r*= 2", "state" -> "Boxes"|>,
+    "TeXAssistantTemplate"], TraditionalForm]],ExpressionUUID->
+  "ab03ece3-175c-42ad-9778-afb3963736a7"],
+ ". Compare the phase portrait below with the one in step 2. Does the \
+proportional control achieve the control goal? If not, what kind of control \
+would you recommend to be used?"
+}], "Text",
+ CellChangeTimes->{{3.9235587973016253`*^9, 3.923558820216607*^9}, {
+  3.923559003778104*^9, 
+  3.923559033199339*^9}},ExpressionUUID->"94ac3467-d078-4041-b4ca-\
+d05fdd39d8c5"],
+
+Cell[TextData[{
+ "The derivatives should be 0 to achieve an equilibrium point\n",
+ Cell[BoxData[
+  FormBox[
+   TemplateBox[<|"boxes" -> FormBox[
+       RowBox[{
+         SuperscriptBox[
+          OverscriptBox[
+           StyleBox["x", "TI"], "."], "2"], "\[LongEqual]", "-", 
+         FractionBox[
+          StyleBox["b", "TI"], 
+          StyleBox["m", "TI"]], 
+         SubscriptBox[
+          StyleBox["x", "TI"], "2"], 
+         RowBox[{"[", 
+           StyleBox["q", "TI"], "]"}], "-", 
+         FractionBox[
+          StyleBox["k", "TI"], 
+          StyleBox["m", "TI"]], 
+         SubscriptBox[
+          StyleBox["x", "TI"], "1"], 
+         RowBox[{"[", 
+           StyleBox["q", "TI"], "]"}], "+", 
+         FractionBox["1", 
+          StyleBox["m", "TI"]], 
+         SubscriptBox[
+          StyleBox["k", "TI"], 
+          StyleBox["p", "TI"]], 
+         RowBox[{"(", 
+           RowBox[{
+             StyleBox["r", "TI"], "*", "-", 
+             SubscriptBox[
+              StyleBox["x", "TI"], "1"]}], ")"}]}], TraditionalForm], 
+     "errors" -> {}, "input" -> 
+     "\\Dot{x}^2 = -\\frac{b}{m}x_2[q]-\\frac{k}{m}x_1[q]+ \\frac{1}{m} k_p \
+(r*-x_1)", "state" -> "Boxes"|>,
+    "TeXAssistantTemplate"], TraditionalForm]],ExpressionUUID->
+  "c1304406-aa66-44fd-8e76-e392ce645a33"],
+ "\n",
+ Cell[BoxData[
+  FormBox[
+   TemplateBox[<|"boxes" -> FormBox[
+       RowBox[{"0", "\[LongEqual]", 
+         RowBox[{"(", 
+           RowBox[{"-", 
+             FractionBox[
+              StyleBox["k", "TI"], 
+              StyleBox["m", "TI"]], "-", 
+             FractionBox[
+              SubscriptBox[
+               StyleBox["k", "TI"], 
+               StyleBox["p", "TI"]], 
+              StyleBox["m", "TI"]]}], ")"}], 
+         StyleBox["x", "TI"], "+", 
+         FractionBox[
+          RowBox[{
+            StyleBox["k", "TI"], 
+            StyleBox["p", "TI"], 
+            StyleBox["r", "TI"], "*"}], 
+          StyleBox["m", "TI"]]}], TraditionalForm], "errors" -> {}, "input" -> 
+     "0 = (-\\frac{k}{m} - \\frac{k_p}{m} )x + \\frac{kpr*}{m}", "state" -> 
+     "Boxes"|>,
+    "TeXAssistantTemplate"], TraditionalForm]],ExpressionUUID->
+  "a2b2fdf2-5fea-4a24-abde-d2305a89781c"],
+ "\n",
+ Cell[BoxData[
+  FormBox[
+   TemplateBox[<|"boxes" -> FormBox[
+       FractionBox[
+        SubscriptBox[
+         StyleBox["k", "TI"], 
+         StyleBox["p", "TI"]], 
+        RowBox[{
+          StyleBox["k", "TI"], "+", 
+          SubscriptBox[
+           StyleBox["k", "TI"], 
+           StyleBox["p", "TI"]]}]], TraditionalForm], "errors" -> {}, "input" -> 
+     "\\frac{k_p}{k+ k_p}", "state" -> "Boxes"|>,
+    "TeXAssistantTemplate"], TraditionalForm]],ExpressionUUID->
+  "8c0b055a-bd77-4d3f-8bf9-ccf902974f35"],
+ " is the controller multiplied by ",
+ Cell[BoxData[
+  FormBox[
+   TemplateBox[<|"boxes" -> FormBox[
+       RowBox[{"*", 
+         StyleBox["r", "TI"], "\[LongEqual]", 
+         SubscriptBox[
+          StyleBox["x", "TI"], "1"]}], TraditionalForm], "errors" -> {}, 
+     "input" -> "*r = x_1", "state" -> "Boxes"|>,
+    "TeXAssistantTemplate"], TraditionalForm]],ExpressionUUID->
+  "dffc6179-978c-4ce9-8a1d-469631bb38e2"],
+ ", so we know",
+ Cell[BoxData[
+  FormBox[
+   TemplateBox[<|"boxes" -> FormBox[
+       RowBox[{
+         StyleBox["k", "TI"], 
+         StyleBox["p", "TI"], "\[LongEqual]", "2"}], TraditionalForm], 
+     "errors" -> {}, "input" -> " kp=2", "state" -> "Boxes"|>,
+    "TeXAssistantTemplate"], TraditionalForm]],ExpressionUUID->
+  "677a30b6-c0dd-4ebd-844b-97ac846159ff"],
+ " and ",
+ Cell[BoxData[
+  FormBox[
+   TemplateBox[<|"boxes" -> FormBox[
+       RowBox[{
+         StyleBox["k", "TI"], "\[LongEqual]", "2", ",", 
+         SubscriptBox[
+          StyleBox["x", "TI"], "1"], "\[LongEqual]", "1"}], TraditionalForm], 
+     "errors" -> {}, "input" -> "k=2, x_1=1", "state" -> "Boxes"|>,
+    "TeXAssistantTemplate"], TraditionalForm]],ExpressionUUID->
+  "81c4aab6-7376-43f9-8830-37c809c044ea"],
+ "\nand this doesn\[CloseCurlyQuote]t make it 0, which would be ideal for an \
+equilibrium, how can we make ",
+ Cell[BoxData[
+  FormBox[
+   TemplateBox[<|"boxes" -> FormBox[
+       RowBox[{
+         SubscriptBox[
+          StyleBox["x", "TI"], "1"], "\[LongEqual]", 
+         StyleBox["r", "TI"], "*"}], TraditionalForm], "errors" -> {}, 
+     "input" -> "x_1= r*", "state" -> "Boxes"|>,
+    "TeXAssistantTemplate"], TraditionalForm]],ExpressionUUID->
+  "4302a1c3-93b4-4b20-9233-f72ee074850c"],
+ "? We make ",
+ Cell[BoxData[
+  FormBox[
+   TemplateBox[<|"boxes" -> FormBox[
+       RowBox[{
+         SubscriptBox[
+          StyleBox["k", "TI"], 
+          StyleBox["p", "TI"]], "\[LongEqual]", "\[Infinity]"}], 
+       TraditionalForm], "errors" -> {}, "input" -> "k_p= \\infty", "state" -> 
+     "Boxes"|>,
+    "TeXAssistantTemplate"], TraditionalForm]],ExpressionUUID->
+  "4043d807-c379-4c00-85fe-c83f3fd2fc92"],
+ ", but we cannot make gains infinitely large. We\[CloseCurlyQuote]ll use an \
+integral controller, but this is another question"
+}], "Text",
+ CellChangeTimes->{{3.923558824685267*^9, 3.923558991780406*^9}, {
+  3.923559054321501*^9, 3.923559065685927*^9}, {3.9235591344859753`*^9, 
+  3.9235592440036697`*^9}},ExpressionUUID->"62770beb-1c60-4626-a36a-\
+f732800b51a9"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Root locus plot", "Section",
+ CellChangeTimes->{{3.9235592600992517`*^9, 
+  3.923559262638631*^9}},ExpressionUUID->"9af8276e-0ce2-40c0-aa6a-\
+6cf5e9c71d01"],
+
+Cell[TextData[{
+ "Consider the linear system \n",
+ Cell[BoxData[
+  FormBox[
+   TemplateBox[<|"boxes" -> FormBox[
+       RowBox[{
+         OverscriptBox[
+          StyleBox["x", "TI"], "."], "\[LongEqual]", 
+         StyleBox["A", "TI"], 
+         StyleBox["x", "TI"], "+", 
+         StyleBox["B", "TI"], 
+         StyleBox["u", "TI"], "\[LongEqual]", 
+         RowBox[{"(", 
+           RowBox[{
+             StyleBox["A", "TI"], "-", 
+             StyleBox["B", "TI"], 
+             StyleBox["K", "TI"], 
+             StyleBox["C", "TI"]}], ")"}], 
+         StyleBox["x", "TI"], "\[LongEqual]", 
+         StyleBox["M", "TI"], 
+         StyleBox["x", "TI"]}], TraditionalForm], "errors" -> {}, "input" -> 
+     "\\Dot{x}=Ax+Bu= (A-BKC)x= Mx", "state" -> "Boxes"|>,
+    "TeXAssistantTemplate"], TraditionalForm]],ExpressionUUID->
+  "28c5ce74-284a-488b-9433-0cc59bf0fd2a"],
+ ", \n",
+ Cell[BoxData[
+  FormBox[
+   TemplateBox[<|"boxes" -> FormBox[
+       RowBox[{
+         StyleBox["y", "TI"], "\[LongEqual]", 
+         StyleBox["C", "TI"], 
+         StyleBox["x", "TI"]}], TraditionalForm], "errors" -> {}, "input" -> 
+     "y= Cx", "state" -> "Boxes"|>,
+    "TeXAssistantTemplate"], TraditionalForm]],ExpressionUUID->
+  "5956cf25-3b15-4439-8d9e-a04033dfb64b"],
+ ", \n",
+ Cell[BoxData[
+  FormBox[
+   TemplateBox[<|"boxes" -> FormBox[
+       RowBox[{
+         StyleBox["u", "TI"], "\[LongEqual]", "-", 
+         StyleBox["K", "TI"], 
+         StyleBox["y", "TI"], "\[LongEqual]", "-", 
+         StyleBox["K", "TI"], 
+         StyleBox["C", "TI"], 
+         StyleBox["x", "TI"]}], TraditionalForm], "errors" -> {}, "input" -> 
+     "u = -Ky = -KCx", "state" -> "Boxes"|>,
+    "TeXAssistantTemplate"], TraditionalForm]],ExpressionUUID->
+  "a6ab5621-a830-4a26-9c74-0ac84ee6bcc4"],
+ " resulting from a feedback system (input depends on output)"
+}], "Text",
+ CellChangeTimes->{{3.923559269682042*^9, 3.923559315167842*^9}, {
+  3.923559345378138*^9, 3.923559360811689*^9}, {3.923559397657654*^9, 
+  3.923559441264735*^9}, {3.923559486187845*^9, 
+  3.923559491600561*^9}},ExpressionUUID->"1fe990c3-babe-425a-bf4d-\
+5617b2078f46"],
+
+Cell["\<\
+
+1. 0 \[LessEqual] k \[LessEqual] 0.21 unstable no oscillations (log \
+increase), real positive
+2. 0.21 < k < 3.61 unstable, oscillations, real positive, imaginary not 0
+3. k = 3.61 oscillation, stable
+4. 3.61 < k < 16.5 oscillation, asymptotically stable
+5. k \[GreaterEqual] 16 unstable no oscillations \
+\>", "Text",
+ CellChangeTimes->{{3.923559655466057*^9, 3.9235596570583467`*^9}, {
+  3.9235600369533243`*^9, 
+  3.9235601603093967`*^9}},ExpressionUUID->"e5d7564a-1a43-422f-9620-\
+5601b90c1ccf"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Linearization", "Section",
+ CellChangeTimes->{{3.923559724680842*^9, 3.9235597391503077`*^9}, 
+   3.923560035196288*^9, {3.923560395616712*^9, 
+   3.9235604269412613`*^9}},ExpressionUUID->"0183c6be-c39b-47ba-934a-\
+c6fe2e684fb9"],
+
+Cell[TextData[{
+ "Consider a scalar system  ",
+ Cell[BoxData[
+  FormBox[
+   TemplateBox[<|"boxes" -> FormBox[
+       RowBox[{
+         OverscriptBox[
+          StyleBox["x", "TI"], "."], "\[LongEqual]", "-", 
+         SuperscriptBox[
+          StyleBox["x", "TI"], "2"], "-", "4", 
+         StyleBox["x", "TI"], "-", "3", "+", "2", 
+         StyleBox["u", "TI"]}], TraditionalForm], "errors" -> {}, "input" -> 
+     "\\Dot{x} = -x^2-4x-3+2u", "state" -> "Boxes"|>,
+    "TeXAssistantTemplate"], TraditionalForm]],ExpressionUUID->
+  "580df5cb-04a0-4ab2-90a6-a8fd21977b9d"],
+ "  with output ",
+ Cell[BoxData[
+  FormBox[
+   TemplateBox[<|"boxes" -> FormBox[
+       RowBox[{
+         StyleBox["y", "TI"], "\[LongEqual]", "5", 
+         StyleBox["x", "TI"]}], TraditionalForm], "errors" -> {}, "input" -> 
+     "y = 5x", "state" -> "Boxes"|>,
+    "TeXAssistantTemplate"], TraditionalForm]],ExpressionUUID->
+  "209129b8-f4ac-4447-b8f0-dad0ff8d19cc"],
+ ". \nCompute the equilibrium points for the unforced system (",
+ Cell[BoxData[
+  FormBox[
+   TemplateBox[<|"boxes" -> FormBox[
+       RowBox[{
+         StyleBox["u", "TI"], "\[LongEqual]", "0"}], TraditionalForm], 
+     "errors" -> {}, "input" -> "u = 0", "state" -> "Boxes"|>,
+    "TeXAssistantTemplate"], TraditionalForm]],ExpressionUUID->
+  "4bb315e3-87fc-44ef-b5a0-2b4e1108bc04"],
+ ") and use (5.33)-(5.34) of the book to compute the linearization around \
+each equilibrium point. What can be said about the stability of the \
+linearized system(s) if the input is chosen equal to zero?"
+}], "Text",
+ CellChangeTimes->{{3.923560430463023*^9, 3.923560509111554*^9}, 
+   3.923560554131568*^9, 3.9235612339056664`*^9, {3.923562212727036*^9, 
+   3.92356221784396*^9}},ExpressionUUID->"3f90dcb6-37fa-452c-a10e-\
+341850ebf06c"],
+
+Cell[TextData[{
+ "The Jacobian linearization of the nonlinear system is for ",
+ Cell[BoxData[
+  FormBox[
+   TemplateBox[<|"boxes" -> FormBox[
+       RowBox[{
+         StyleBox["z", "TI"], "\[LongEqual]", 
+         StyleBox["x", "TI"], "-", 
+         SubscriptBox[
+          StyleBox["x", "TI"], 
+          StyleBox["e", "TI"]]}], TraditionalForm], "errors" -> {}, "input" -> 
+     "z=x-x_e", "state" -> "Boxes"|>,
+    "TeXAssistantTemplate"], TraditionalForm]],ExpressionUUID->
+  "e7e9fd26-eff1-458b-9c95-3224ab08bf91"],
+ ", ",
+ Cell[BoxData[
+  FormBox[
+   TemplateBox[<|"boxes" -> FormBox[
+       RowBox[{"\[Omega]", "\[LongEqual]", 
+         StyleBox["y", "TI"], "-", 
+         StyleBox["h", "TI"], 
+         RowBox[{"(", 
+           RowBox[{
+             SubscriptBox[
+              StyleBox["x", "TI"], 
+              StyleBox["e", "TI"]], ",", 
+             SubscriptBox[
+              StyleBox["u", "TI"], 
+              StyleBox["e", "TI"]]}], ")"}]}], TraditionalForm], 
+     "errors" -> {}, "input" -> "\\omega= y-h(x_e,u_e)", "state" -> "Boxes"|>,
+    
+    "TeXAssistantTemplate"], TraditionalForm]],ExpressionUUID->
+  "6245a5ba-6f5f-48b9-88d7-2f34a58b835f"],
+ ", ",
+ Cell[BoxData[
+  FormBox[
+   TemplateBox[<|"boxes" -> FormBox[
+       RowBox[{
+         StyleBox["v", "TI"], "\[LongEqual]", 
+         StyleBox["u", "TI"], "-", 
+         SubscriptBox[
+          StyleBox["u", "TI"], 
+          StyleBox["e", "TI"]]}], TraditionalForm], "errors" -> {}, "input" -> 
+     "v = u-u_e", "state" -> "Boxes"|>,
+    "TeXAssistantTemplate"], TraditionalForm]],ExpressionUUID->
+  "62dd2b38-7e14-4157-8a78-db7204ffbb7d"],
+ " which model so that if the equilibrium point ",
+ Cell[BoxData[
+  FormBox[
+   TemplateBox[<|"boxes" -> FormBox[
+       RowBox[{
+         SubscriptBox[
+          StyleBox["x", "TI"], 
+          StyleBox["e", "TI"]], "\[LongEqual]", "-1"}], TraditionalForm], 
+     "errors" -> {}, "input" -> "x_e= -1", "state" -> "Boxes"|>,
+    "TeXAssistantTemplate"], TraditionalForm]],ExpressionUUID->
+  "046b70ca-a168-4ea0-8678-748ae540866f"],
+ " and the point we\[CloseCurlyQuote]re evaluating is our equilibrium point \
+is ",
+ Cell[BoxData[
+  FormBox[
+   TemplateBox[<|"boxes" -> FormBox[
+       RowBox[{
+         StyleBox["z", "TI"], "\[LongEqual]", "-1", "-", "-1", "\[LongEqual]",
+          "0"}], TraditionalForm], "errors" -> {}, "input" -> "z= -1--1 = 0", 
+     "state" -> "Boxes"|>,
+    "TeXAssistantTemplate"], TraditionalForm]],ExpressionUUID->
+  "e3747a57-581f-4fb1-ae0f-d99417f55e19"],
+ "\n",
+ Cell[BoxData[
+  FormBox[
+   TemplateBox[<|"boxes" -> FormBox[
+       RowBox[{
+         OverscriptBox[
+          StyleBox["z", "TI"], "."], "\[LongEqual]", 
+         StyleBox["A", "TI"], 
+         StyleBox["z", "TI"], "+", 
+         StyleBox["B", "TI"], 
+         StyleBox["v", "TI"], ",", "\[LongEqual]", 
+         RowBox[{"(", 
+           RowBox[{"-2", 
+             StyleBox["x", "TI"], "-", "4"}], ")"}], 
+         StyleBox["z", "TI"], "+", "2", 
+         StyleBox["v", "TI"]}], TraditionalForm], "errors" -> {}, "input" -> 
+     "\\Dot{z} = Az + Bv, = (-2x-4)z + 2v", "state" -> "Boxes"|>,
+    "TeXAssistantTemplate"], TraditionalForm]],ExpressionUUID->
+  "8cb25f7a-6e3d-4721-8769-3f2a637ec5af"],
+ " which will change according to equilibrium coordinates (x,y)\n",
+ Cell[BoxData[
+  FormBox[
+   TemplateBox[<|"boxes" -> FormBox[
+       RowBox[{"\[Omega]", "\[LongEqual]", 
+         StyleBox["C", "TI"], 
+         StyleBox["z", "TI"], "+", 
+         StyleBox["D", "TI"], 
+         StyleBox["v", "TI"], "\[LongEqual]", "5", 
+         StyleBox["z", "TI"]}], TraditionalForm], "errors" -> {}, "input" -> 
+     "\\omega = Cz + Dv = 5z", "state" -> "Boxes"|>,
+    "TeXAssistantTemplate"], TraditionalForm]],ExpressionUUID->
+  "94de5b68-7de7-46c1-a106-56039388d8c6"],
+ "\nwhere \n",
+ Cell[BoxData[
+  FormBox[
+   TemplateBox[<|"boxes" -> FormBox[
+       RowBox[{
+         StyleBox["A", "TI"], "\[LongEqual]", 
+         FractionBox[
+          RowBox[{"\[PartialD]", 
+            StyleBox["f", "TI"]}], 
+          RowBox[{"\[PartialD]", 
+            StyleBox["x", "TI"]}]], "\[LongEqual]", "-2", 
+         StyleBox["x", "TI"], "-", "4"}], TraditionalForm], "errors" -> {}, 
+     "input" -> "A= \\frac{\\partial f}{\\partial x}= -2x-4", "state" -> 
+     "Boxes"|>,
+    "TeXAssistantTemplate"], TraditionalForm]],ExpressionUUID->
+  "df2b0e9d-81fe-48b8-a276-25d3158698f4"],
+ ", ",
+ Cell[BoxData[
+  FormBox[
+   TemplateBox[<|"boxes" -> FormBox[
+       RowBox[{
+         StyleBox["B", "TI"], "\[LongEqual]", 
+         FractionBox[
+          RowBox[{"\[PartialD]", 
+            StyleBox["f", "TI"]}], 
+          RowBox[{"\[PartialD]", 
+            StyleBox["u", "TI"]}]], "\[LongEqual]", "2"}], TraditionalForm], 
+     "errors" -> {}, "input" -> "B = \\frac{\\partial f}{\\partial u} = 2", 
+     "state" -> "Boxes"|>,
+    "TeXAssistantTemplate"], TraditionalForm]],ExpressionUUID->
+  "bb99f038-7a88-43e9-9648-52e1fbc45226"],
+ ", ",
+ Cell[BoxData[
+  FormBox[
+   TemplateBox[<|"boxes" -> FormBox[
+       RowBox[{
+         StyleBox["C", "TI"], "\[LongEqual]", 
+         FractionBox[
+          RowBox[{"\[PartialD]", 
+            StyleBox["h", "TI"]}], 
+          RowBox[{"\[PartialD]", 
+            StyleBox["x", "TI"]}]], "\[LongEqual]", "5"}], TraditionalForm], 
+     "errors" -> {}, "input" -> "C = \\frac{\\partial h}{ \\partial x }= 5", 
+     "state" -> "Boxes"|>,
+    "TeXAssistantTemplate"], TraditionalForm]],ExpressionUUID->
+  "6243c387-d8d0-449a-b710-414fa8669585"],
+ ", ",
+ Cell[BoxData[
+  FormBox[
+   TemplateBox[<|"boxes" -> FormBox[
+       RowBox[{
+         StyleBox["D", "TI"], "\[LongEqual]", "0"}], TraditionalForm], 
+     "errors" -> {}, "input" -> "D = 0", "state" -> "Boxes"|>,
+    "TeXAssistantTemplate"], TraditionalForm]],ExpressionUUID->
+  "475a3116-b1d4-495b-b4e0-f8f1c8aaca9c"]
+}], "Text",
+ CellChangeTimes->{{3.92356056593991*^9, 3.923560585461236*^9}, {
+  3.923560748826124*^9, 3.923560756983253*^9}, {3.9235608405406923`*^9, 
+  3.923561102364132*^9}, {3.9235612381960077`*^9, 3.9235612877419662`*^9}, {
+  3.923561783279236*^9, 3.923561835408607*^9}, {3.923561980788877*^9, 
+  3.9235620006210117`*^9}},ExpressionUUID->"05633796-efa0-4786-8d4d-\
+706cf58ebbf6"],
+
+Cell[TextData[{
+ "So for ",
+ Cell[BoxData[
+  FormBox[
+   TemplateBox[<|"boxes" -> FormBox[
+       RowBox[{
+         SubscriptBox[
+          StyleBox["x", "TI"], 
+          StyleBox["e", "TI"]], "\[LongEqual]", "-1"}], TraditionalForm], 
+     "errors" -> {}, "input" -> "x_e=-1", "state" -> "Boxes"|>,
+    "TeXAssistantTemplate"], TraditionalForm]],ExpressionUUID->
+  "21718ba3-af09-46c2-a731-919de9a97871"],
+ ", we get ",
+ Cell[BoxData[
+  FormBox[
+   TemplateBox[<|"boxes" -> FormBox[
+       RowBox[{
+         OverscriptBox[
+          StyleBox["z", "TI"], "."], "\[LongEqual]", 
+         RowBox[{"(", "-2", ")"}], 
+         StyleBox["z", "TI"], "+", "2", 
+         StyleBox["v", "TI"]}], TraditionalForm], "errors" -> {}, "input" -> 
+     "\\Dot{z}= (-2)z +2v", "state" -> "Boxes"|>,
+    "TeXAssistantTemplate"], TraditionalForm]],ExpressionUUID->
+  "2b1e8db3-1d02-444d-857c-06326c674497"],
+ " and ",
+ Cell[BoxData[
+  FormBox[
+   TemplateBox[<|"boxes" -> FormBox[
+       RowBox[{"\[Omega]", "\[LongEqual]", "5", 
+         StyleBox["z", "TI"]}], TraditionalForm], "errors" -> {}, "input" -> 
+     "\\omega =5z", "state" -> "Boxes"|>,
+    "TeXAssistantTemplate"], TraditionalForm]],ExpressionUUID->
+  "498e1460-db09-4f14-9691-8001025a538e"],
+ " which is stable because the coefficient is negative and therefore a \
+solution ",
+ Cell[BoxData[
+  FormBox[
+   TemplateBox[<|"boxes" -> FormBox[
+       RowBox[{
+         StyleBox["z", "TI"], "\[LongEqual]", 
+         SuperscriptBox[
+          StyleBox["e", "TI"], 
+          RowBox[{
+            StyleBox["A", "TI"], 
+            StyleBox["t", "TI"]}]]}], TraditionalForm], "errors" -> {}, 
+     "input" -> "z= e^{At}", "state" -> "Boxes"|>,
+    "TeXAssistantTemplate"], TraditionalForm]],ExpressionUUID->
+  "e49dc364-80a5-4434-83d7-fbc1873c5e30"],
+ " will go to ",
+ Cell[BoxData[
+  FormBox[
+   TemplateBox[<|"boxes" -> FormBox[
+       SuperscriptBox[
+        StyleBox["e", "TI"], "0"], TraditionalForm], "errors" -> {}, "input" -> 
+     "e^0", "state" -> "Boxes"|>,
+    "TeXAssistantTemplate"], TraditionalForm]],ExpressionUUID->
+  "c351251c-c793-4809-8542-921ec553982f"],
+ " and get close to equilibrium\n",
+ Cell[BoxData[
+  FormBox[
+   TemplateBox[<|"boxes" -> FormBox[
+       RowBox[{
+         SubscriptBox[
+          StyleBox["X", "TI"], 
+          StyleBox["e", "TI"]], "\[LongEqual]", "-3"}], TraditionalForm], 
+     "errors" -> {}, "input" -> "X_e= -3", "state" -> "Boxes"|>,
+    "TeXAssistantTemplate"], TraditionalForm]],ExpressionUUID->
+  "b30a3d1d-4ff9-4465-b9e1-3b0e51f1d971"],
+ " we get ",
+ Cell[BoxData[
+  FormBox[
+   TemplateBox[<|"boxes" -> FormBox[
+       RowBox[{
+         OverscriptBox[
+          StyleBox["z", "TI"], "."], "\[LongEqual]", 
+         RowBox[{"(", "2", ")"}], 
+         StyleBox["z", "TI"], "+", "2", 
+         StyleBox["v", "TI"]}], TraditionalForm], "errors" -> {}, "input" -> 
+     "\\Dot{z}= (2)z +2v", "state" -> "Boxes"|>,
+    "TeXAssistantTemplate"], TraditionalForm]],ExpressionUUID->
+  "e8cf7e2a-9d5f-4748-8033-21f09df60c8f"],
+ " and ",
+ Cell[BoxData[
+  FormBox[
+   TemplateBox[<|"boxes" -> FormBox[
+       RowBox[{"\[Omega]", "\[LongEqual]", "5", 
+         StyleBox["z", "TI"]}], TraditionalForm], "errors" -> {}, "input" -> 
+     "\\omega =5z", "state" -> "Boxes"|>,
+    "TeXAssistantTemplate"], TraditionalForm]],ExpressionUUID->
+  "09a3c107-63ff-4603-9b91-721f67dd7ec9"],
+ " which is unstable"
+}], "Text",
+ CellChangeTimes->{{3.923561192660161*^9, 3.9235612302537813`*^9}, {
+   3.923561305788124*^9, 3.923561359914177*^9}, {3.923562003449696*^9, 
+   3.923562180193082*^9}, {3.923562223983953*^9, 3.9235622321333227`*^9}, 
+   3.923563018251266*^9, {3.923563109347204*^9, 
+   3.923563162921528*^9}},ExpressionUUID->"0d0e330e-1f1a-4d1e-bf1e-\
+c9810fc8aa9d"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Linearization", "Section",
+ CellChangeTimes->{{3.92356219674459*^9, 3.923562209390239*^9}, 
+   3.9235622509780607`*^9},ExpressionUUID->"338aba93-4aa5-4852-a2b3-\
+e97582f7c439"],
+
+Cell[TextData[{
+ "2. the derivatives are 0 at the equilibrium point so \n",
+ Cell[BoxData[
+  FormBox[
+   TemplateBox[<|"boxes" -> FormBox[
+       RowBox[{"0", "\[LongEqual]", "-", 
+         FractionBox[
+          RowBox[{
+            StyleBox["a", "TI"], 
+            SqrtBox[
+             RowBox[{"2", 
+               StyleBox["g", "TI"]}]]}], 
+          StyleBox["A", "TI"]], 
+         SqrtBox[
+          StyleBox["h", "TI"]]}], TraditionalForm], "errors" -> {}, "input" -> 
+     "0 = -\\frac{a\\sqrt{2g}}{A} \\sqrt{h}", "state" -> "Boxes"|>,
+    "TeXAssistantTemplate"], TraditionalForm]],ExpressionUUID->
+  "70a54f71-e034-4d27-8aad-9747ee248636"],
+ " which will need to make h= 0 which means there is no water in the tank\n2. \
+for an inflow of 10 we calculate value h that satisfies the equation\n",
+ Cell[BoxData[
+  FormBox[
+   TemplateBox[<|"boxes" -> FormBox[
+       RowBox[{
+         FractionBox["10", 
+          StyleBox["A", "TI"]], "\[LongEqual]", "-", 
+         FractionBox[
+          RowBox[{
+            StyleBox["a", "TI"], 
+            SqrtBox[
+             RowBox[{"2", 
+               StyleBox["g", "TI"]}]]}], 
+          StyleBox["A", "TI"]], 
+         SqrtBox[
+          StyleBox["h", "TI"]]}], TraditionalForm], "errors" -> {}, "input" -> 
+     "\\frac{10}{A} = -\\frac{a\\sqrt{2g}}{A} \\sqrt{h}", "state" -> "Boxes"|>,
+    "TeXAssistantTemplate"], TraditionalForm]],ExpressionUUID->
+  "d879d033-778d-49d0-9627-dc3771aa2565"],
+ " from which we can rewrite ",
+ Cell[BoxData[
+  FormBox[
+   TemplateBox[<|"boxes" -> FormBox[
+       RowBox[{
+         StyleBox["h", "TI"], "\[LongEqual]", 
+         FractionBox["50", 
+          RowBox[{
+            SuperscriptBox[
+             StyleBox["a", "TI"], "2"], 
+            StyleBox["g", "TI"]}]]}], TraditionalForm], "errors" -> {}, 
+     "input" -> "h = \\frac{50}{a^2g}", "state" -> "Boxes"|>,
+    "TeXAssistantTemplate"], TraditionalForm]],ExpressionUUID->
+  "7db0e75d-4079-4497-b9ac-e87460aa466f"],
+ "\nLet\[CloseCurlyQuote]s rewrite the x= Ax(t) + Bu(t) by Bx(t) + C u(t) \
+just because we already have a capital A. In this case we know ",
+ Cell[BoxData[
+  FormBox[
+   TemplateBox[<|"boxes" -> FormBox[
+       RowBox[{
+         StyleBox["B", "TI"], "\[LongEqual]", 
+         FractionBox[
+          RowBox[{"\[PartialD]", 
+            StyleBox["f", "TI"]}], 
+          RowBox[{"\[PartialD]", 
+            StyleBox["h", "TI"]}]], "\[LongEqual]", "-", 
+         FractionBox[
+          RowBox[{
+            StyleBox["a", "TI"], 
+            SqrtBox[
+             RowBox[{"2", 
+               StyleBox["g", "TI"]}]]}], 
+          RowBox[{"2", 
+            StyleBox["A", "TI"]}]], 
+         SqrtBox[
+          StyleBox["h", "TI"]], 
+         FractionBox["1", 
+          SqrtBox[
+           StyleBox["h", "TI"]]], "\[LongEqual]", "-", 
+         FractionBox[
+          RowBox[{
+            SuperscriptBox[
+             StyleBox["a", "TI"], "2"], 
+            StyleBox["g", "TI"]}], 
+          RowBox[{
+            StyleBox["A", "TI"], "10"}]]}], TraditionalForm], "errors" -> {}, 
+     "input" -> 
+     "B= \\frac{\\partial f}{\\partial h} = - \\frac{a\\sqrt{2g}}{2A} \
+\\sqrt{h} \\frac{1}{\\sqrt{h}} = - \\frac{a^2g}{A10}", "state" -> "Boxes"|>,
+    "TeXAssistantTemplate"], TraditionalForm]],ExpressionUUID->
+  "c9c960d7-55d5-4092-bbc1-efeebc81054a"],
+ ", ",
+ Cell[BoxData[
+  FormBox[
+   TemplateBox[<|"boxes" -> FormBox[
+       RowBox[{
+         StyleBox["C", "TI"], "\[LongEqual]", 
+         FractionBox[
+          RowBox[{"\[PartialD]", 
+            StyleBox["f", "TI"]}], 
+          RowBox[{"\[PartialD]", 
+            StyleBox["u", "TI"]}]], "\[LongEqual]", 
+         FractionBox["1", 
+          StyleBox["A", "TI"]]}], TraditionalForm], "errors" -> {}, "input" -> 
+     "C =  \\frac{\\partial f}{\\partial u} = \\frac{1}{A}", "state" -> 
+     "Boxes"|>,
+    "TeXAssistantTemplate"], TraditionalForm]],ExpressionUUID->
+  "761eb67b-8163-4842-9ecd-00ad5b1c4f22"],
+ "\n",
+ Cell[BoxData[
+  FormBox[
+   TemplateBox[<|"boxes" -> FormBox[
+       RowBox[{
+         StyleBox["D", "TI"], "\[LongEqual]", 
+         FractionBox[
+          RowBox[{"\[PartialD]", 
+            StyleBox["S", "TI"]}], 
+          RowBox[{"\[PartialD]", 
+            StyleBox["h", "TI"]}]], "\[LongEqual]", 
+         FractionBox[
+          RowBox[{
+            SuperscriptBox[
+             StyleBox["a", "TI"], "2"], 
+            StyleBox["g", "TI"]}], "10"]}], TraditionalForm], "errors" -> {}, 
+     "input" -> "D= \\frac{\\partial S}{\\partial h} =  \\frac{a^2g}{10}", 
+     "state" -> "Boxes"|>,
+    "TeXAssistantTemplate"], TraditionalForm]],ExpressionUUID->
+  "0ad05506-477f-4cda-8a7d-0c8bd1aa328e"],
+ ", E= 0\nfinally we compute \n",
+ Cell[BoxData[
+  FormBox[
+   TemplateBox[<|"boxes" -> FormBox[
+       RowBox[{
+         OverscriptBox[
+          StyleBox["z", "TI"], "."], "\[LongEqual]", "-", 
+         FractionBox[
+          RowBox[{
+            SuperscriptBox[
+             StyleBox["a", "TI"], "2"], 
+            StyleBox["g", "TI"]}], 
+          RowBox[{
+            StyleBox["A", "TI"], "10"}]], 
+         StyleBox["x", "TI"], "+", 
+         FractionBox["1", 
+          StyleBox["A", "TI"]], 
+         StyleBox["u", "TI"]}], TraditionalForm], "errors" -> {}, "input" -> 
+     "\\Dot{z}= - \\frac{a^2g}{A10} x + \\frac{1}{A} u", "state" -> "Boxes"|>,
+    
+    "TeXAssistantTemplate"], TraditionalForm]],ExpressionUUID->
+  "6bc8404e-bb8f-49cf-ac4d-fef72f7126d7"],
+ "\n",
+ Cell[BoxData[
+  FormBox[
+   TemplateBox[<|"boxes" -> FormBox[
+       RowBox[{"\[Omega]", "\[LongEqual]", 
+         FractionBox[
+          RowBox[{
+            SuperscriptBox[
+             StyleBox["a", "TI"], "2"], 
+            StyleBox["g", "TI"]}], "10"], 
+         StyleBox["x", "TI"]}], TraditionalForm], "errors" -> {}, "input" -> 
+     "\\omega = \\frac{a^2g}{10} x ", "state" -> "Boxes"|>,
+    "TeXAssistantTemplate"], TraditionalForm]],ExpressionUUID->
+  "8c976dd6-8024-441d-91cd-d01f8fd04fe3"]
+}], "Text",
+ CellChangeTimes->{{3.923562277889139*^9, 3.923562602655397*^9}, {
+  3.92356264796122*^9, 3.923562678943646*^9}, {3.923562798395759*^9, 
+  3.923563006384664*^9}},ExpressionUUID->"594bd304-6fbf-4f6c-946e-\
+ddea4863fb2d"]
+}, Open  ]]
+},
+WindowSize->{808, 885},
+WindowMargins->{{4, Automatic}, {Automatic, 4}},
+FrontEndVersion->"14.0 for Mac OS X x86 (64-bit) (December 12, 2023)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"6da8c17c-f257-4987-b244-2bce356d2655"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 2127, 50, 252, "Subsection",ExpressionUUID->"df792c54-595a-47e2-b745-da19255c19ef"],
+Cell[2710, 74, 230, 4, 35, "Text",ExpressionUUID->"0d1373a3-e241-4869-a93d-4bb206c776ed"],
+Cell[2943, 80, 1182, 38, 94, "Input",ExpressionUUID->"c5017ea4-c464-4a97-9a2f-577858a1e9ee"],
+Cell[4128, 120, 178, 4, 30, "Input",ExpressionUUID->"b35f5610-9d4b-48f2-880a-cb6fea614546"],
+Cell[4309, 126, 334, 7, 58, "Text",ExpressionUUID->"13575178-e2b2-475b-8531-f23ded4fe7d7"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[4680, 138, 365, 8, 81, "Subsection",ExpressionUUID->"5d61dbef-b0f8-493b-9251-d834b9476aa9"],
+Cell[5048, 148, 275, 6, 35, "Text",ExpressionUUID->"76dd2fac-3aa4-4d82-8fc7-fd2726555d18"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[5360, 159, 162, 3, 67, "Section",ExpressionUUID->"40f5ec5e-f110-4c29-b1cc-3ab9d397d293"],
+Cell[5525, 164, 1767, 44, 85, "Text",ExpressionUUID->"94ac3467-d078-4041-b4ca-d05fdd39d8c5"],
+Cell[7295, 210, 5213, 142, 211, "Text",ExpressionUUID->"62770beb-1c60-4626-a36a-f732800b51a9"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[12545, 357, 162, 3, 67, "Section",ExpressionUUID->"9af8276e-0ce2-40c0-aa6a-6cf5e9c71d01"],
+Cell[12710, 362, 2117, 55, 110, "Text",ExpressionUUID->"1fe990c3-babe-425a-bf4d-5617b2078f46"],
+Cell[14830, 419, 510, 12, 150, "Text",ExpressionUUID->"e5d7564a-1a43-422f-9620-5601b90c1ccf"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[15377, 436, 235, 4, 67, "Section",ExpressionUUID->"0183c6be-c39b-47ba-934a-c6fe2e684fb9"],
+Cell[15615, 442, 1769, 41, 108, "Text",ExpressionUUID->"3f90dcb6-37fa-452c-a10e-341850ebf06c"],
+Cell[17387, 485, 6187, 161, 172, "Text",ExpressionUUID->"05633796-efa0-4786-8d4d-706cf58ebbf6"],
+Cell[23577, 648, 3745, 98, 87, "Text",ExpressionUUID->"0d0e330e-1f1a-4d1e-bf1e-c9810fc8aa9d"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[27359, 751, 182, 3, 67, "Section",ExpressionUUID->"338aba93-4aa5-4852-a2b3-e97582f7c439"],
+Cell[27544, 756, 6150, 166, 382, "Text",ExpressionUUID->"594bd304-6fbf-4f6c-946e-ddea4863fb2d"]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)
+

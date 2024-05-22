@@ -4,35 +4,22 @@
     "type": "split",
     "children": [
       {
-        "id": "20fbe4a08198ea44",
+        "id": "c490ab318ce419ab",
         "type": "tabs",
         "children": [
           {
-            "id": "8755e9c46807433b",
+            "id": "7fb1b1e4fe96aa17",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Geometry/08 Gaussian curvature.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "aee6c8bbaebcc87c",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "DeepLearningForestry/In-person week.md",
+                "file": "Probability_Theory/w3.md",
                 "mode": "source",
                 "source": false
               }
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -61,7 +48,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "first fundamental",
+                "query": "closed",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -82,8 +69,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 288.5,
-    "collapsed": true
+    "width": 288.5
   },
   "right": {
     "id": "f50f3a345b607fbf",
@@ -99,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "DeepLearningForestry/In-person week.md",
+                "file": "Probability_Theory/w3.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -116,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "DeepLearningForestry/In-person week.md",
+                "file": "Probability_Theory/w3.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -139,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "DeepLearningForestry/In-person week.md"
+                "file": "Probability_Theory/w3.md"
               }
             }
           }
@@ -160,20 +146,46 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "1af62b7091e3e510",
+  "active": "7fb1b1e4fe96aa17",
   "lastOpenFiles": [
-    "Geometry/assignments/Geometry_HW.pdf",
-    "Geometry/mathematica/Curvature.nb",
-    "Geometry/assignments/Geometry_HW.pdf.crdownload",
-    "Geometry/assignments",
+    "Probability_Theory/Lecture Notes (v April 30).pdf",
+    "Probability_Theory/w2.md",
+    "Probability_Theory/w3.md",
+    "Probability_Theory/w1 combinatorics.md",
+    "Probability_Theory/Lecture Notes (v April 4).pdf",
+    "Control_Eng/2-link-pendulum-textbook.nb",
+    "Geometry/01 Curves in an affine space.md",
+    "Control_Eng/Tutorials/Additional_ex.nb",
+    "Control_Eng/Additional-exercises-2023-2024-w-some-answers.pdf",
     "Geometry/06 2-surfaces.md",
+    "Geometry/mathematica/Q3.nb",
+    "Geometry/mathematica/Q2.nb",
+    "Geometry/10 Geodesics.md",
     "Geometry/07 Gaussian Curvature.md",
-    "Geometry/08 Gaussian curvature.md",
-    "Geometry/13 Euclidean Geometry.md",
-    "Geometry/mathematica/Pull-back-arithmetic.nb",
+    "Geometry/mathematica/Question_1_Exam.nb",
+    "Geometry/assignments/Geometry_2024_Solutions.pdf",
+    "Geometry/assignments/Exam_Geometry_v2_2024.pdf",
+    "Geometry/05 Quadric surfaces.md",
+    "Geometry/04 Curvature and oscillating circles.md",
+    "Geometry/03 Evolute and torsion.md",
+    "Geometry/02 Conics, Cycloids, Envelopes.md",
+    "Geometry/14 Projective Geometry.md",
+    "Geometry/15 Perspectivity.md",
     "Geometry/12 Affinity and theorems.md",
-    "Geometry/assets/5Yv7l-2812003655.png",
+    "Geometry/assets/Desargues'_Theorem.png",
+    "Geometry/assets/Desargues'_Theorem",
+    "Geometry/Support Sesh 2.md",
+    "Geometry/13 Euclidean Geometry.md",
+    "NLP/notes/N-gram Language Models.md",
+    "Geometry/assets/autodraw 27_03_2024.png",
+    "Geometry/assets/14_4.png",
+    "Geometry/assets/14_3.png",
+    "Geometry/assets/14_2.png",
+    "Geometry/assets/drawing_14_1.png",
+    "DeepLearningForestry/assets/download.png",
     "DeepLearningForestry/In-person week.md",
+    "Geometry/08 Gaussian curvature.md",
+    "Geometry/assets/5Yv7l-2812003655.png",
     "DeepLearningForestry/4 Image Processing.md",
     "DeepLearningForestry/Introduction.md",
     "DeepLearningForestry/Second lecture.md"

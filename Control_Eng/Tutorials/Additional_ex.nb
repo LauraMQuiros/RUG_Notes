@@ -1,0 +1,753 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 14.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     28600,        745]
+NotebookOptionsPosition[     26955,        709]
+NotebookOutlinePosition[     27350,        725]
+CellTagsIndexPosition[     27307,        722]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["Additional Exercises", "Title",
+ CellChangeTimes->{{3.922681441775606*^9, 
+  3.9226814498812017`*^9}},ExpressionUUID->"780e6410-959d-44f7-8893-\
+e77429065a7c"],
+
+Cell[CellGroupData[{
+
+Cell["Lecture 1", "Section",
+ CellChangeTimes->{{3.922681461012541*^9, 
+  3.922681462863845*^9}},ExpressionUUID->"f176f0e8-b3f2-4239-a84c-\
+caca39569e12"],
+
+Cell[TextData[{
+ StyleBox["A.",
+  FontWeight->"Bold"],
+ " Consider the equations of motion of the mass-spring damper system  ",
+ Cell[BoxData[
+  FormBox[
+   TemplateBox[<|"boxes" -> FormBox[
+       RowBox[{
+         StyleBox["m", "TI"], 
+         OverscriptBox[
+          RowBox[{
+            StyleBox["q", "TI"], "(", 
+            StyleBox["t", "TI"], ")"}], "\:0308"], "+", 
+         StyleBox["c", "TI"], 
+         RowBox[{"(", 
+           OverscriptBox[
+            RowBox[{
+              StyleBox["q", "TI"], "(", 
+              StyleBox["t", "TI"], ")"}], "."], ")"}], "+", 
+         StyleBox["k", "TI"], 
+         StyleBox["q", "TI"], 
+         RowBox[{"(", 
+           StyleBox["t", "TI"], ")"}], "\[LongEqual]", 
+         StyleBox["u", "TI"], 
+         RowBox[{"(", 
+           StyleBox["t", "TI"], ")"}]}], TraditionalForm], "errors" -> {}, 
+     "input" -> "m\\Ddot{q(t)} + c(\\Dot{q(t)}) + kq(t) = u(t)", "state" -> 
+     "Boxes"|>,
+    "TeXAssistantTemplate"], TraditionalForm]],ExpressionUUID->
+  "c7a6001f-9425-477a-a476-d867bc8d4977"],
+ ". Define the scaled variables ",
+ Cell[BoxData[
+  FormBox[
+   TemplateBox[<|"boxes" -> FormBox[
+       RowBox[{
+         StyleBox["z", "TI"], 
+         RowBox[{"(", "\[Tau]", ")"}], ",", "\[Tau]", ",", 
+         StyleBox["v", "TI"], 
+         RowBox[{"(", "\[Tau]", ")"}]}], TraditionalForm], "errors" -> {}, 
+     "input" -> "z(\\tau), \\tau , v(\\tau )", "state" -> "Boxes"|>,
+    "TeXAssistantTemplate"], TraditionalForm]],ExpressionUUID->
+  "ce0dc889-d15c-40b6-8b21-45d8f54a9456"],
+ " and the parameter ",
+ Cell[BoxData[
+  FormBox[
+   TemplateBox[<|
+    "boxes" -> FormBox["\[Xi]", TraditionalForm], "errors" -> {}, "input" -> 
+     "\\xi", "state" -> "Boxes"|>,
+    "TeXAssistantTemplate"], TraditionalForm]],ExpressionUUID->
+  "86e44336-3317-4b4b-be30-5bc7eb965b73"],
+ " such that the equations above can be written as ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    TemplateBox[<|"boxes" -> FormBox[
+        RowBox[{
+          FractionBox[
+           SuperscriptBox[
+            StyleBox["d", "TI"], "2"], 
+           RowBox[{
+             StyleBox["d", "TI"], 
+             SuperscriptBox["\[Tau]", "2"]}]], 
+          StyleBox["z", "TI"], 
+          RowBox[{"(", "\[Tau]", ")"}], "+", "2", "\[Xi]", 
+          FractionBox[
+           StyleBox["d", "TI"], 
+           RowBox[{
+             StyleBox["d", "TI"], 
+             StyleBox["z", "TI"], 
+             RowBox[{"(", "\[Tau]", ")"}]}]], "+", 
+          StyleBox["z", "TI"], 
+          RowBox[{"(", "\[Tau]", ")"}], "\[LongEqual]", 
+          StyleBox["v", "TI"], 
+          RowBox[{"(", "\[Tau]", ")"}]}], TraditionalForm], "errors" -> {}, 
+      "input" -> 
+      "\\frac{d^2}{d \\tau^2} z(\\tau) + 2 \\xi \\frac{d}{d z(\\tau)} + \
+z(\\tau) = v(\\tau)", "state" -> "Boxes"|>,
+     "TeXAssistantTemplate"], " "}], TraditionalForm]],ExpressionUUID->
+  "53105895-e002-4ad9-ac0a-0d77a293f007"],
+ " "
+}], "Text",
+ CellChangeTimes->{{3.922681475857295*^9, 3.922681476836512*^9}, {
+  3.922681513015472*^9, 3.922681519858251*^9}, {3.922681555281829*^9, 
+  3.922681603688817*^9}, {3.9226816944831963`*^9, 3.922681714204389*^9}, {
+  3.922681948648735*^9, 
+  3.922681949232811*^9}},ExpressionUUID->"ebf3bc1a-7e06-41f0-8715-\
+52dc6b1b28bb"],
+
+Cell[TextData[{
+ StyleBox["B. 1.5 (Integral action)",
+  FontWeight->"Bold"],
+ " We say that a system with a constant input reaches steady state if the \
+output of the system approaches a constant value as time increases. Show that \
+a controller with integral action, such as those given in equations (1.4) and \
+(1.5), gives zero error if the closed loop system reaches steady state."
+}], "Text",
+ CellChangeTimes->{{3.922681933994322*^9, 
+  3.922681953107998*^9}},ExpressionUUID->"9afb8da3-92c8-4464-9881-\
+1684deade02b"],
+
+Cell[TextData[{
+ "A. ",
+ Cell[BoxData[
+  FormBox[
+   TemplateBox[<|"boxes" -> FormBox[
+       RowBox[{
+         StyleBox["u", "TI"], 
+         RowBox[{"(", 
+           StyleBox["t", "TI"], ")"}], "\[LongEqual]", 
+         StyleBox["v", "TI"], 
+         RowBox[{"(", "\[Tau]", ")"}], ",", 
+         StyleBox["t", "TI"], "\[LongEqual]", "\[Tau]", ",", 
+         StyleBox["q", "TI"], 
+         RowBox[{"(", 
+           StyleBox["t", "TI"], ")"}], "\[LongEqual]", 
+         StyleBox["z", "TI"], 
+         RowBox[{"(", 
+           StyleBox["t", "TI"], ")"}], ",", 
+         StyleBox["c", "TI"], 
+         RowBox[{"(", 
+           RowBox[{
+             StyleBox["q", "TI"], "(", 
+             StyleBox["t", "TI"], ")"}], ")"}], "\[LongEqual]", "2", "\[Xi]", 
+         
+         StyleBox["q", "TI"], 
+         RowBox[{"(", 
+           StyleBox["t", "TI"], ")"}]}], TraditionalForm], "errors" -> {}, 
+     "input" -> 
+     "u(t) = v(\\tau), t = \\tau, q(t) = z(t), c(q(t)) = 2 \\xi q(t)", 
+     "state" -> "Boxes"|>,
+    "TeXAssistantTemplate"], TraditionalForm]],ExpressionUUID->
+  "230bf976-6fbf-4538-bd7f-39a1ece54551"],
+ "\nB. So in order for a controller to give zero error we need ",
+ Cell[BoxData[
+  FormBox[
+   TemplateBox[<|"boxes" -> FormBox[
+       RowBox[{"0", "\[LongEqual]", 
+         SubscriptBox[
+          StyleBox["k", "TI"], 
+          StyleBox["i", "TI"]], 
+         SubsuperscriptBox["\[Integral]", "0", 
+          StyleBox["t", "TI"]], 
+         StyleBox["e", "TI"], 
+         RowBox[{"(", "\[Tau]", ")"}], 
+         StyleBox["d", "TI"], "\[Tau]"}], TraditionalForm], "errors" -> {}, 
+     "input" -> "0 = k_i \\int_0^t e(\\tau) d\\tau", "state" -> "Boxes"|>,
+    "TeXAssistantTemplate"], TraditionalForm]],ExpressionUUID->
+  "961c3b15-cae5-4694-b95d-e69e3f0cfe77"],
+ " and this is only possible if we have either ",
+ Cell[BoxData[
+  FormBox[
+   TemplateBox[<|"boxes" -> FormBox[
+       RowBox[{
+         SubscriptBox[
+          StyleBox["k", "TI"], 
+          StyleBox["i", "TI"]], "\[LongEqual]", "0"}], TraditionalForm], 
+     "errors" -> {}, "input" -> "k_i= 0", "state" -> "Boxes"|>,
+    "TeXAssistantTemplate"], TraditionalForm]],ExpressionUUID->
+  "00b37cc4-00b8-4791-879c-890965102b63"],
+ " or ",
+ Cell[BoxData[
+  FormBox[
+   TemplateBox[<|"boxes" -> FormBox[
+       RowBox[{
+         SubsuperscriptBox["\[Integral]", "0", 
+          StyleBox["t", "TI"]], 
+         StyleBox["e", "TI"], 
+         RowBox[{"(", "\[Tau]", ")"}], 
+         StyleBox["d", "TI"], "\[Tau]", "\[LongEqual]", "0"}], 
+       TraditionalForm], "errors" -> {}, "input" -> 
+     "\\int_0^t e(\\tau) d\\tau = 0", "state" -> "Boxes"|>,
+    "TeXAssistantTemplate"], TraditionalForm]],ExpressionUUID->
+  "1c74de16-e5f7-45b4-96ee-69d80180f2e4"],
+ ". We know that a zero error is possible because ",
+ Cell[BoxData[
+  FormBox[
+   TemplateBox[<|"boxes" -> FormBox[
+       SubscriptBox[
+        StyleBox["k", "TI"], 
+        StyleBox["i", "TI"]], TraditionalForm], "errors" -> {}, "input" -> 
+     "k_i", "state" -> "Boxes"|>,
+    "TeXAssistantTemplate"], TraditionalForm]],ExpressionUUID->
+  "5318f8ab-3c5e-465b-8b7d-2906056b19e9"],
+ " is constant and therefore there is no addition that would force the result \
+to be higher than 0. Therefore, if we make proper control, it will approach a \
+zero error."
+}], "Text",
+ CellChangeTimes->{{3.9226819863758907`*^9, 3.9226819868872643`*^9}, {
+  3.922682018941351*^9, 3.922682037872709*^9}, {3.922682097183732*^9, 
+  3.922682147643204*^9}, {3.922683198128023*^9, 3.922683239960705*^9}, {
+  3.9226833288778057`*^9, 
+  3.922683576499695*^9}},ExpressionUUID->"4f258a96-6c79-4a07-818b-\
+ecfe61cf5589"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Lecture 2", "Section",
+ CellChangeTimes->{{3.922683585595397*^9, 
+  3.9226835875613623`*^9}},ExpressionUUID->"e6f685d3-1cd9-44f3-931d-\
+0a7eb5f8a89c"],
+
+Cell[TextData[{
+ "Consider the cart-pendulum system in [1,Example2.1] and the equations of \
+motion[1, (2.9)] describing it and recalled below\n",
+ Cell[BoxData[
+  FormBox[
+   TemplateBox[<|"boxes" -> FormBox[
+       RowBox[{
+         RowBox[{"(", 
+           RowBox[{
+             StyleBox["M", "TI"], "+", 
+             StyleBox["m", "TI"]}], ")"}], 
+         OverscriptBox[
+          StyleBox["p", "TI"], "\:0308"], "-", 
+         StyleBox["m", "TI"], 
+         StyleBox["l", "TI"], 
+         RowBox[{"(", 
+           RowBox[{"cos", "\[Theta]"}], ")"}], 
+         OverscriptBox["\[Theta]", "\:0308"], "+", 
+         StyleBox["c", "TI"], 
+         OverscriptBox[
+          StyleBox["p", "TI"], "."], "+", 
+         StyleBox["m", "TI"], 
+         StyleBox["l", "TI"], 
+         RowBox[{"(", 
+           RowBox[{"sin", "\[Theta]"}], ")"}], 
+         SuperscriptBox[
+          OverscriptBox["\[Theta]", "."], "2"], "\[LongEqual]", 
+         StyleBox["F", "TI"]}], TraditionalForm], "errors" -> {}, "input" -> 
+     "(M+m)\\ddot{p} - ml(\\cos{\\theta})\\ddot{\\theta} + c\\dot{p} + \
+ml(\\sin{\\theta})\\dot{\\theta}^2 = F", "state" -> "Boxes"|>,
+    "TeXAssistantTemplate"], TraditionalForm]],ExpressionUUID->
+  "04081b8d-2406-4a7d-8f9f-a550d4cdb1e2"],
+ " \n",
+ Cell[BoxData[
+  FormBox[
+   TemplateBox[<|"boxes" -> FormBox[
+       RowBox[{"-", 
+         StyleBox["m", "TI"], 
+         StyleBox["l", "TI"], "cos", "\[Theta]", 
+         OverscriptBox[
+          StyleBox["p", "TI"], "\:0308"], "+", 
+         RowBox[{"(", 
+           RowBox[{
+             StyleBox["J", "TI"], "+", 
+             StyleBox["m", "TI"], 
+             SuperscriptBox[
+              StyleBox["l", "TI"], "2"]}], ")"}], 
+         OverscriptBox["\[Theta]", "\:0308"], "+", "\[Gamma]", 
+         OverscriptBox["\[Theta]", "."], "-", 
+         StyleBox["m", "TI"], 
+         StyleBox["g", "TI"], 
+         StyleBox["l", "TI"], "sin", "\[Theta]", "\[LongEqual]", "0"}], 
+       TraditionalForm], "errors" -> {}, "input" -> 
+     "-ml \\cos{\\theta}\\ddot{p} + (J+ml^2)\\ddot{\\theta} + \\gamma \
+\\dot{\\theta} -mgl \\sin{\\theta} = 0", "state" -> "Boxes"|>,
+    "TeXAssistantTemplate"], TraditionalForm]],ExpressionUUID->
+  "373e20a2-58ac-48c2-82ca-ffcf10cb55a3"],
+ "\n",
+ StyleBox["i)",
+  FontWeight->"Bold"],
+ " Determine the translational kinetic co-energy of the cart with mass ",
+ Cell[BoxData[
+  FormBox[
+   TemplateBox[<|"boxes" -> FormBox[
+       StyleBox["M", "TI"], TraditionalForm], "errors" -> {}, "input" -> "M", 
+     "state" -> "Boxes"|>,
+    "TeXAssistantTemplate"], TraditionalForm]],ExpressionUUID->
+  "c42650e3-dbc1-4e8c-bc77-db70a2121640"],
+ ", and the horizontal and vertical translational kinetic co-energy of the \
+mass ",
+ Cell[BoxData[
+  FormBox[
+   TemplateBox[<|"boxes" -> FormBox[
+       StyleBox["m", "TI"], TraditionalForm], "errors" -> {}, "input" -> "m", 
+     "state" -> "Boxes"|>,
+    "TeXAssistantTemplate"], TraditionalForm]],ExpressionUUID->
+  "e096c500-d5e0-4f6b-8274-1bde1e69dfef"],
+ " to be balanced.\n",
+ StyleBox["ii)",
+  FontWeight->"Bold"],
+ " Determine the rotational kinetic co-energy of the pendulum with moment of \
+inertia ",
+ Cell[BoxData[
+  FormBox[
+   TemplateBox[<|"boxes" -> FormBox[
+       StyleBox["J", "TI"], TraditionalForm], "errors" -> {}, "input" -> "J", 
+     "state" -> "Boxes"|>,
+    "TeXAssistantTemplate"], TraditionalForm]],ExpressionUUID->
+  "d8aa0248-cb38-4a93-a3a8-05389dc9e07e"],
+ ".\n",
+ StyleBox["iii)",
+  FontWeight->"Bold"],
+ " Denoted by ",
+ Cell[BoxData[
+  FormBox[
+   TemplateBox[<|"boxes" -> FormBox[
+       StyleBox["c", "TI"], TraditionalForm], "errors" -> {}, "input" -> "c", 
+     "state" -> "Boxes"|>,
+    "TeXAssistantTemplate"], TraditionalForm]],ExpressionUUID->
+  "a32b079b-e8bd-4636-8cab-6fb6fa116763"],
+ " and ",
+ Cell[BoxData[
+  FormBox[
+   TemplateBox[<|
+    "boxes" -> FormBox["\[Gamma]", TraditionalForm], "errors" -> {}, "input" -> 
+     "\\gamma", "state" -> "Boxes"|>,
+    "TeXAssistantTemplate"], TraditionalForm]],ExpressionUUID->
+  "41e1d29b-efca-4f2b-911b-427e5733cf5f"],
+ " the coefficients of viscous friction, determine the Rayleigh dissipation \
+function.\n",
+ StyleBox["iv)",
+  FontWeight->"Bold"],
+ " Denoted by g the acceleration due to gravity and by ",
+ Cell[BoxData[
+  FormBox[
+   TemplateBox[<|"boxes" -> FormBox[
+       StyleBox["F", "TI"], TraditionalForm], "errors" -> {}, "input" -> "F", 
+     "state" -> "Boxes"|>,
+    "TeXAssistantTemplate"], TraditionalForm]],ExpressionUUID->
+  "731a6621-3cff-4fcd-a0ca-c32be3ad5404"],
+ " the force applied at the cart, determine the non-conservative potential \
+function ",
+ Cell[BoxData[
+  FormBox[
+   TemplateBox[<|"boxes" -> FormBox[
+       RowBox[{"-", 
+         SuperscriptBox[
+          StyleBox["u", "TI"], 
+          StyleBox["T", "TI"]], 
+         StyleBox["q", "TI"]}], TraditionalForm], "errors" -> {}, "input" -> 
+     "- u^T q", "state" -> "Boxes"|>,
+    "TeXAssistantTemplate"], TraditionalForm]],ExpressionUUID->
+  "1bdf7793-c385-4583-a143-bae5c5185c42"],
+ ", where ",
+ Cell[BoxData[
+  FormBox[
+   TemplateBox[<|"boxes" -> FormBox[
+       RowBox[{
+         SuperscriptBox[
+          StyleBox["u", "TI"], 
+          StyleBox["T", "TI"]], "\[LongEqual]", 
+         RowBox[{"[", 
+           RowBox[{
+             StyleBox["m", "TI"], 
+             StyleBox["g", "TI"], 
+             StyleBox["F", "TI"]}], "]"}], ","}], TraditionalForm], 
+     "errors" -> {}, "input" -> "u^T = [mg F],", "state" -> "Boxes"|>,
+    "TeXAssistantTemplate"], TraditionalForm]],ExpressionUUID->
+  "e45bddf2-ab03-4a7b-b790-1d75d2e679b8"],
+ " and ",
+ Cell[BoxData[
+  FormBox[
+   TemplateBox[<|"boxes" -> FormBox[
+       StyleBox["q", "TI"], TraditionalForm], "errors" -> {}, "input" -> "q", 
+     "state" -> "Boxes"|>,
+    "TeXAssistantTemplate"], TraditionalForm]],ExpressionUUID->
+  "de1d0c42-2032-4e6a-b4e8-a73e6d676162"],
+ " is the generalized displacement (to be determined).\n",
+ StyleBox["v)",
+  FontWeight->"Bold"],
+ " Use the quantities determined before to show that [1, (2.9)] are the \
+Euler- Lagrange equations of motion of the cart-pendulum system."
+}], "Text",
+ CellChangeTimes->{{3.922683675308769*^9, 3.922683747784451*^9}, {
+   3.9226837853080673`*^9, 3.922684022573921*^9}, 
+   3.9226848045745287`*^9},ExpressionUUID->"40268a56-6f03-4929-84f4-\
+b56a83458ea8"],
+
+Cell[TextData[{
+ "i) We know that the kinetic co-energy is given by ",
+ Cell[BoxData[
+  FormBox[
+   TemplateBox[<|"boxes" -> FormBox[
+       RowBox[{
+         StyleBox["T", "TI"], "*", 
+         RowBox[{"(", 
+           OverscriptBox[
+            StyleBox["q", "TI"], "."], ")"}], "\[LongEqual]", 
+         FractionBox["1", "2"], 
+         StyleBox["M", "TI"], 
+         SuperscriptBox[
+          OverscriptBox[
+           StyleBox["p", "TI"], "."], "2"]}], TraditionalForm], 
+     "errors" -> {}, "input" -> "T*(\\dot{q}) = \\frac{1}{2} M\\dot{p}^2", 
+     "state" -> "Boxes"|>,
+    "TeXAssistantTemplate"], TraditionalForm]],ExpressionUUID->
+  "e03dcd92-c93e-4c8f-a65c-a0538b025f60"],
+ " , however the generalised coordinates can be  in the translational \
+mechanical domain ( ",
+ Cell[BoxData[
+  FormBox[
+   TemplateBox[<|"boxes" -> FormBox[
+       RowBox[{
+         StyleBox["x", "TI"], 
+         RowBox[{"[", 
+           StyleBox["m", "TI"], "]"}]}], TraditionalForm], "errors" -> {}, 
+     "input" -> "x[m]", "state" -> "Boxes"|>,
+    "TeXAssistantTemplate"], TraditionalForm]],ExpressionUUID->
+  "178625c6-0681-40bd-9319-590e8f427834"],
+ ", representing the actual position of the system) or in the rotational \
+domain ( ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    TemplateBox[<|
+     "boxes" -> FormBox["\[Theta]", TraditionalForm], "errors" -> {}, "input" -> 
+      "\\theta", "state" -> "Boxes"|>,
+     "TeXAssistantTemplate"], "[", "rad", "]"}], TraditionalForm]],
+  ExpressionUUID->"3c6c74b2-82f7-424f-a784-47f9d156fc72"],
+ " representing the angle). \nThe position of mass M can be related to the \
+polar coordinates by the following: ",
+ Cell[BoxData[
+  FormBox[
+   TemplateBox[<|"boxes" -> FormBox[
+       RowBox[{
+         StyleBox["x", "TI"], "\[LongEqual]", 
+         StyleBox["p", "TI"], "-", 
+         StyleBox["l", "TI"], "sin", "\[Theta]", ",", 
+         StyleBox["y", "TI"], "\[LongEqual]", 
+         StyleBox["l", "TI"], "cos", "\[Theta]"}], TraditionalForm], 
+     "errors" -> {}, "input" -> "x= p - l \\sin{\\theta}, y= l\\cos{\\theta}",
+      "state" -> "Boxes"|>,
+    "TeXAssistantTemplate"], TraditionalForm]],ExpressionUUID->
+  "843f0f7a-091e-4851-8d41-3b30e4437e58"],
+ ". \nBy using these for the translational domain and substituting in ",
+ Cell[BoxData[
+  FormBox[
+   TemplateBox[<|"boxes" -> FormBox[
+       RowBox[{
+         StyleBox["T", "TI"], "*", 
+         RowBox[{"(", 
+           OverscriptBox[
+            StyleBox["q", "TI"], "."], ")"}]}], TraditionalForm], 
+     "errors" -> {}, "input" -> "T*(\\dot{q})", "state" -> "Boxes"|>,
+    "TeXAssistantTemplate"], TraditionalForm]],ExpressionUUID->
+  "985e4fc1-691a-4a41-88cd-d3bb6a35c03e"],
+ " we obtain the equation\n ",
+ Cell[BoxData[
+  FormBox[
+   TemplateBox[<|"boxes" -> FormBox[
+       RowBox[{
+         StyleBox["T", "TI"], "*", 
+         RowBox[{"(", "\[Theta]", ")"}], "\[LongEqual]", 
+         FractionBox["1", "2"], 
+         StyleBox["M", "TI"], 
+         RowBox[{"(", 
+           RowBox[{
+             OverscriptBox[
+              StyleBox["p", "TI"], "."], "-", 
+             StyleBox["l", "TI"], 
+             RowBox[{"(", 
+               RowBox[{"cos", "\[Theta]"}], ")"}], 
+             OverscriptBox["\[Theta]", "."]}], ")"}]}], TraditionalForm], 
+     "errors" -> {}, "input" -> 
+     "T*(\\theta) = \\frac{1}{2}M (\\dot{p}- l (\\cos{\\theta}) \
+\\dot{\\theta})", "state" -> "Boxes"|>,
+    "TeXAssistantTemplate"], TraditionalForm]],ExpressionUUID->
+  "b467b094-4e2e-42c0-ae0c-56d68b758641"],
+ "  for the horizontal translational kinetic co-energy and\n  ",
+ Cell[BoxData[
+  FormBox[
+   TemplateBox[<|"boxes" -> FormBox[
+       RowBox[{
+         StyleBox["T", "TI"], "*", 
+         RowBox[{"(", "\[Theta]", ")"}], "\[LongEqual]", 
+         FractionBox["1", "2"], 
+         StyleBox["M", "TI"], 
+         RowBox[{"(", 
+           RowBox[{"-", 
+             StyleBox["l", "TI"], 
+             RowBox[{"(", 
+               RowBox[{"sin", "\[Theta]"}], ")"}], 
+             OverscriptBox["\[Theta]", "."]}], ")"}]}], TraditionalForm], 
+     "errors" -> {}, "input" -> 
+     "T*(\\theta) = \\frac{1}{2}M (-l (\\sin{\\theta}) \\dot{\\theta})", 
+     "state" -> "Boxes"|>,
+    "TeXAssistantTemplate"], TraditionalForm]],ExpressionUUID->
+  "d76d044c-f46f-4215-947c-103f9ca7156d"],
+ " for the vertical translational kinetic co-energy\nii) because we are using \
+inertia instead of displacement, ",
+ Cell[BoxData[
+  FormBox[
+   TemplateBox[<|"boxes" -> FormBox[
+       RowBox[{
+         StyleBox["T", "TI"], "*", 
+         RowBox[{"(", 
+           OverscriptBox[
+            StyleBox["q", "TI"], "."], ")"}], "\[LongEqual]", 
+         FractionBox["1", "2"], 
+         StyleBox["M", "TI"], 
+         SuperscriptBox[
+          OverscriptBox[
+           StyleBox["p", "TI"], "."], "2"]}], TraditionalForm], 
+     "errors" -> {}, "input" -> "T*(\\dot{q}) = \\frac{1}{2} M\\dot{p}^2", 
+     "state" -> "Boxes"|>,
+    "TeXAssistantTemplate"], TraditionalForm]],ExpressionUUID->
+  "c801a27a-7de4-4c70-86b8-c66c85ae8fde"],
+ " becomes ",
+ Cell[BoxData[
+  FormBox[
+   TemplateBox[<|"boxes" -> FormBox[
+       RowBox[{
+         StyleBox["T", "TI"], "*", 
+         RowBox[{"(", 
+           OverscriptBox[
+            StyleBox["q", "TI"], "."], ")"}], "\[LongEqual]", 
+         FractionBox["1", "2"], 
+         StyleBox["J", "TI"], 
+         SuperscriptBox[
+          OverscriptBox["\[Theta]", "."], "2"]}], TraditionalForm], 
+     "errors" -> {}, "input" -> 
+     "T*(\\dot{q}) = \\frac{1}{2} J\\dot{\\theta}^2", "state" -> "Boxes"|>,
+    "TeXAssistantTemplate"], TraditionalForm]],ExpressionUUID->
+  "03e9927b-62da-4060-a211-e4bee74d37ee"],
+ " because the generalised coordinates are angles and the moment of inertia \
+scales the rotation just as the mass scales the translation. The moment of \
+inertia determines how much torque is required to produce a certain angular \
+acceleration (according to Newton\[CloseCurlyQuote]s second law for rotation, \
+\|01d70f=\|01d43c\|01d6fc where \|01d70f is torque and \[Alpha] is angular \
+acceleration).\niii) The Rayleigh dissipation function is usually given by ",
+ Cell[BoxData[
+  FormBox[
+   TemplateBox[<|"boxes" -> FormBox[
+       RowBox[{
+         StyleBox["D", "TI"], 
+         RowBox[{"(", 
+           OverscriptBox[
+            StyleBox["q", "TI"], "."], ")"}], "\[LongEqual]", 
+         FractionBox["1", "2"], 
+         StyleBox["b", "TI"], 
+         SuperscriptBox[
+          OverscriptBox[
+           StyleBox["q", "TI"], "."], "2"]}], TraditionalForm], 
+     "errors" -> {}, "input" -> "D(\\dot{q}) = \\frac{1}{2}b\\dot{q}^2", 
+     "state" -> "Boxes"|>,
+    "TeXAssistantTemplate"], TraditionalForm]],ExpressionUUID->
+  "3df9aebe-931d-4d85-a01d-b6c315684cf1"],
+ " so for the two coefficients it should look like ",
+ Cell[BoxData[
+  FormBox[
+   TemplateBox[<|"boxes" -> FormBox[
+       RowBox[{
+         StyleBox["D", "TI"], 
+         RowBox[{"(", 
+           RowBox[{
+             OverscriptBox[
+              StyleBox["q", "TI"], "."], ",", 
+             OverscriptBox["\[Theta]", "."]}], ")"}], "\[LongEqual]", 
+         FractionBox["1", "2"], 
+         StyleBox["c", "TI"], 
+         SuperscriptBox[
+          OverscriptBox[
+           StyleBox["q", "TI"], "."], "2"], "+", 
+         FractionBox["1", "2"], "\[Gamma]", 
+         SuperscriptBox[
+          OverscriptBox["\[Theta]", "."], "2"]}], TraditionalForm], 
+     "errors" -> {}, "input" -> 
+     "D(\\dot{q}, \\dot{\\theta}) = \\frac{1}{2} c\\dot{q}^2 +  \\frac{1}{2} \
+\\gamma \\dot{\\theta}^2", "state" -> "Boxes"|>,
+    "TeXAssistantTemplate"], TraditionalForm]],ExpressionUUID->
+  "c3ea4c46-c750-4972-ae1a-78758ff3619d"],
+ ", and they have different generalised coordinates because in the context of \
+viscous friction are indeed related to different domains of motion, namely \
+translation and rotation, respectively. \niv) The ",
+ Cell[BoxData[
+  FormBox[
+   TemplateBox[<|"boxes" -> FormBox[
+       RowBox[{
+         StyleBox["f", "TI"], 
+         RowBox[{"(", 
+           StyleBox["q", "TI"], ")"}], "\[LongEqual]", 
+         SuperscriptBox[
+          RowBox[{"[", 
+            RowBox[{
+              StyleBox["l", "TI"], "cos", "\[Theta]   ", 
+              StyleBox["p", "TI"]}], "]"}], 
+          StyleBox["T", "TI"]]}], TraditionalForm], "errors" -> {}, "input" -> 
+     "f(q) = [l \\cos{\\theta}  \\ \\ \\  p]^T", "state" -> "Boxes"|>,
+    "TeXAssistantTemplate"], TraditionalForm]],ExpressionUUID->
+  "222233a1-757c-4625-bcea-f728fd935aae"],
+ "where l \\cos{\\theta} is the vertical position of the mass. Therefore ",
+ Cell[BoxData[
+  FormBox[
+   TemplateBox[<|"boxes" -> FormBox[
+       RowBox[{"-", 
+         SuperscriptBox[
+          StyleBox["u", "TI"], 
+          StyleBox["T", "TI"]], 
+         StyleBox["q", "TI"], "\[LongEqual]", "-", 
+         StyleBox["m", "TI"], 
+         StyleBox["g", "TI"], 
+         StyleBox["l", "TI"], "cos", "\[Theta]", "-", 
+         SubscriptBox[
+          StyleBox["F", "TI"], 
+          StyleBox["p", "TI"]]}], TraditionalForm], "errors" -> {}, "input" -> 
+     "- u^T q = -mgl \\cos{\\theta} - F_p", "state" -> "Boxes"|>,
+    "TeXAssistantTemplate"], TraditionalForm]],ExpressionUUID->
+  "fc5e4a4b-f8d6-4615-872c-ea188afe09bd"],
+ " in which \nv) "
+}], "Text",
+ CellChangeTimes->{{3.9226840902400217`*^9, 3.9226840915604157`*^9}, {
+   3.922684560050362*^9, 3.92268456899964*^9}, {3.922684618438099*^9, 
+   3.922684640563531*^9}, {3.92268469892178*^9, 3.922684712107816*^9}, {
+   3.9226847558888903`*^9, 3.922684810991583*^9}, {3.922684862005485*^9, 
+   3.922684885545451*^9}, {3.922684943066637*^9, 3.922684944187439*^9}, {
+   3.9226850703371077`*^9, 3.922685088210864*^9}, {3.922685119293757*^9, 
+   3.922685160166697*^9}, {3.922685225082218*^9, 3.922685247325043*^9}, {
+   3.922685326183708*^9, 3.922685443559426*^9}, {3.9226924066403008`*^9, 
+   3.922692558271568*^9}, {3.922692637838143*^9, 3.922692646883762*^9}, {
+   3.922692697018079*^9, 3.922692699462295*^9}, {3.9226928020866957`*^9, 
+   3.922692813787887*^9}, {3.922692846591392*^9, 3.922692921347275*^9}, {
+   3.92269295221696*^9, 3.9226929667900767`*^9}, {3.922693031316441*^9, 
+   3.922693035436603*^9}, {3.922693147650333*^9, 3.92269316106141*^9}, {
+   3.922693202517717*^9, 3.922693227887602*^9}, {3.922693270460214*^9, 
+   3.92269332705158*^9}, {3.92269336284939*^9, 3.922693409846812*^9}, 
+   3.922693444454015*^9, 3.922693480477098*^9, {3.922693621826013*^9, 
+   3.922693631959054*^9}, {3.9226937845322*^9, 3.922693795194848*^9}, {
+   3.9227756477738934`*^9, 3.922775673143648*^9}, {3.922795787187576*^9, 
+   3.922795847319407*^9}, {3.922796793403413*^9, 3.922796826316144*^9}, {
+   3.9227968563532677`*^9, 3.922796881068561*^9}, {3.922797213371982*^9, 
+   3.922797218364963*^9}},ExpressionUUID->"482609b0-b5ca-4044-bbc4-\
+5686b6233f95"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Lecture 3", "Section",
+ CellChangeTimes->{{3.923632516210865*^9, 
+  3.923632519021059*^9}},ExpressionUUID->"33da1327-44e1-44b8-8a16-\
+e276e5847261"],
+
+Cell["\<\
+Consider the point mass satellite model 
+i. introduce the state variables and derive the vector field 
+\
+\>", "Text",
+ CellChangeTimes->{{3.923632532176045*^9, 3.9236325702564573`*^9}, 
+   3.923634262173839*^9},ExpressionUUID->"9416ca75-a53a-4363-914d-\
+c7bf97dbb9e0"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"FullSimplify", "[", 
+  RowBox[{
+   RowBox[{"(", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"w", "^", "2"}], "/", "p"}], " ", "+", "C"}], ")"}], "/", 
+   RowBox[{"(", 
+    RowBox[{
+     RowBox[{"p", "^", "2"}], "+", "1"}], ")"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.9236342694702682`*^9, 3.923634294034691*^9}},
+ CellLabel->"In[1]:=",ExpressionUUID->"720b4795-41fa-4b55-9324-5475b9dadfd3"],
+
+Cell[BoxData[
+ FractionBox[
+  RowBox[{
+   RowBox[{"C", " ", "p"}], "+", 
+   SuperscriptBox["w", "2"]}], 
+  RowBox[{"p", "+", 
+   SuperscriptBox["p", "3"]}]]], "Output",
+ CellChangeTimes->{3.923634297012335*^9},
+ CellLabel->"Out[1]=",ExpressionUUID->"6c133de9-f807-4708-8712-5194220a4a02"]
+}, Open  ]],
+
+Cell[BoxData[" "], "Input",
+ CellChangeTimes->{
+  3.923634656570085*^9},ExpressionUUID->"5dc606e2-8cf6-4017-a33f-\
+4ae6c8e2a7bb"]
+}, Open  ]]
+}, Open  ]]
+},
+WindowSize->{931, 987},
+WindowMargins->{{4, Automatic}, {Automatic, 0}},
+FrontEndVersion->"14.0 for Mac OS X x86 (64-bit) (December 12, 2023)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"87841157-f957-48ea-ab56-98cf870bf89a"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 165, 3, 98, "Title",ExpressionUUID->"780e6410-959d-44f7-8893-e77429065a7c"],
+Cell[CellGroupData[{
+Cell[770, 29, 154, 3, 67, "Section",ExpressionUUID->"f176f0e8-b3f2-4239-a84c-caca39569e12"],
+Cell[927, 34, 3243, 86, 90, "Text",ExpressionUUID->"ebf3bc1a-7e06-41f0-8715-52dc6b1b28bb"],
+Cell[4173, 122, 523, 10, 81, "Text",ExpressionUUID->"9afb8da3-92c8-4464-9881-1684deade02b"],
+Cell[4699, 134, 3627, 92, 136, "Text",ExpressionUUID->"4f258a96-6c79-4a07-818b-ecfe61cf5589"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[8363, 231, 156, 3, 67, "Section",ExpressionUUID->"e6f685d3-1cd9-44f3-931d-0a7eb5f8a89c"],
+Cell[8522, 236, 6292, 166, 307, "Text",ExpressionUUID->"40268a56-6f03-4929-84f4-b56a83458ea8"],
+Cell[14817, 404, 10762, 253, 484, "Text",ExpressionUUID->"482609b0-b5ca-4044-bbc4-5686b6233f95"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[25616, 662, 154, 3, 67, "Section",ExpressionUUID->"33da1327-44e1-44b8-8a16-e276e5847261"],
+Cell[25773, 667, 278, 7, 81, "Text",ExpressionUUID->"9416ca75-a53a-4363-914d-c7bf97dbb9e0"],
+Cell[CellGroupData[{
+Cell[26076, 678, 416, 11, 30, "Input",ExpressionUUID->"720b4795-41fa-4b55-9324-5475b9dadfd3"],
+Cell[26495, 691, 288, 8, 57, "Output",ExpressionUUID->"6c133de9-f807-4708-8712-5194220a4a02"]
+}, Open  ]],
+Cell[26798, 702, 129, 3, 30, "Input",ExpressionUUID->"5dc606e2-8cf6-4017-a33f-4ae6c8e2a7bb"]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+

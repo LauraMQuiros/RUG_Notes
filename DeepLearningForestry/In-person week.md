@@ -29,3 +29,11 @@ AlexNet: normalised input size, max pooling 5x, dense 2x
 
 [[Interpretable AI]]: by default some models are inherently interpretable, like [[Decision Tree]] or [[Random Forest]] and [[Linear Regression]]
 [[GDPR]]: Right to an explanation 
+
+[[ReLu]] cannot be negative because then it goes to 0
+[[Guided Backpropagation]] often quite unhelpful 
+[[Integrated Gradients]] is an integral over the gradients, generally very noisy
+[[Smooth Grad]] saliency maps are generally noisy, but what if we use different images. Combined with [[Guided Backpropagation]] or [[Integrated Gradients]] has nice results
+[[Linear Regression]] has a global explanation and we are interested in local input dependent explanation. fit a linear regressor to the local context of the prediction to 
+
+Binary data can't be read without editor [[DICOM]] or [[TIFF]]. Compressed data (mp4) loses quality
