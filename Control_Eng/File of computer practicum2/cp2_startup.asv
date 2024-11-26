@@ -82,19 +82,17 @@ p = poly([-50+30i, -50-30i]);
 
 %Feedback gain K
 Tildek = [p(2)-a(2), p(3)-a(3)];
-K_gain = Tildek*TildeWr*inv(Wr); 
+K = Tildek*TildeWr*inv(Wr); 
 
 %Reference gain k_r
-k_r = -1/(C1*inv(A1-B1*K_gain)*B1);
+k_r = -1/(C1*inv(A1-B1*K)*B1);
 
 %% Exercise 8: Controller computation
 Wo = [C1; C1*A1];
-TildeA = [-a(2),1; -a(3),0];
+TildeA = [-a(1),1; -a(2),0];
 TildeC = [1,0];
 TildeWo = [TildeC; TildeC*TildeA];
-q = poly([-200,-200]);
-matrix_temp = [q(2)-a(2); q(3)-a(3)];
-GainL = inv(Wo)* TildeWo * matrix_temp;
+GainL = inv(Wo)* TildeWo * [p(2)-a(2), p(3)-a(3)];
 
 %% Exercise 9: Controller evaluation
 %Simulate controller system
